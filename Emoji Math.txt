@@ -1,0 +1,139 @@
+//Emoji Math [Ejm]
+var Ejm_1st = ""; //1st number
+var Ejm_sym = ""; // + or -
+var Ejm_2nd = ""; //2nd number
+
+var Ejm_x = 0;
+var Ejm_y = 0;
+
+if (Ejm_1st.length == 2) {
+	if (Ejm_1st == ":)") {
+		Ejm_x = 0;
+	} else if (Ejm_1st == "=(") {
+		Ejm_x = 1;
+	} else if (Ejm_1st == "(:") {
+		Ejm_x = 2;
+	} else if (Ejm_1st == ")=") {
+		Ejm_x = 3;
+	} else if (Ejm_1st == ":(") {
+		Ejm_x = 4;
+	} else if (Ejm_1st == "):") {
+		Ejm_x = 5;
+	} else if (Ejm_1st == "=)") {
+		Ejm_x = 6;
+	} else if (Ejm_1st == "(=") {
+		Ejm_x = 7;
+	} else if (Ejm_1st == ":|") {
+		Ejm_x = 8;
+	} else if (Ejm_1st == "|:") {
+		Ejm_x = 9;
+	}
+} else {
+	if (Ejm_1st[0] == "=" && Ejm_1st[1] == "(") {
+		Ejm_x = 10;
+	} else if (Ejm_1st[0] == "(" && Ejm_1st[1] == ":") {
+		Ejm_x = 20;
+	} else if (Ejm_1st[0] == ")" && Ejm_1st[1] == "=") {
+		Ejm_x = 30;
+	} else if (Ejm_1st[0] == ":" && Ejm_1st[1] == "(") {
+		Ejm_x = 40;
+	} else if (Ejm_1st[0] == ")" && Ejm_1st[1] == ":") {
+		Ejm_x = 50;
+	} else if (Ejm_1st[0] == "=" && Ejm_1st[1] == ")") {
+		Ejm_x = 60;
+	} else if (Ejm_1st[0] == "(" && Ejm_1st[1] == "=") {
+		Ejm_x = 70;
+	} else if (Ejm_1st[0] == ":" && Ejm_1st[1] == "|") {
+		Ejm_x = 80;
+	} else if (Ejm_1st[0] == "|" && Ejm_1st[1] == ":") {
+		Ejm_x = 90;
+	}
+	if (Ejm_1st[2] == "=" && Ejm_1st[3] == "(") {
+		Ejm_x = Ejm_x + 1;
+	} else if (Ejm_1st[2] == "(" && Ejm_1st[3] == ":") {
+		Ejm_x = Ejm_x + 2;
+	} else if (Ejm_1st[2] == ")" && Ejm_1st[3] == "=") {
+		Ejm_x = Ejm_x + 3;
+	} else if (Ejm_1st[2] == ":" && Ejm_1st[3] == "(") {
+		Ejm_x = Ejm_x + 4;
+	} else if (Ejm_1st[2] == ")" && Ejm_1st[3] == ":") {
+		Ejm_x = Ejm_x + 5;
+	} else if (Ejm_1st[2] == "=" && Ejm_1st[3] == ")") {
+		Ejm_x = Ejm_x + 6;
+	} else if (Ejm_1st[2] == "(" && Ejm_1st[3] == "=") {
+		Ejm_x = Ejm_x + 7;
+	} else if (Ejm_1st[2] == ":" && Ejm_1st[3] == "|") {
+		Ejm_x = Ejm_x + 8;
+	} else if (Ejm_1st[2] == "|" && Ejm_1st[3] == ":") {
+		Ejm_x = Ejm_x + 9;
+	}
+}
+
+if (Ejm_2nd.length == 2) {
+	if (Ejm_2nd == ":)") {
+		Ejm_y = 0;
+	} else if (Ejm_2nd == "=(") {
+		Ejm_y = 1;
+	} else if (Ejm_2nd == "(:") {
+		Ejm_y = 2;
+	} else if (Ejm_2nd == ")=") {
+		Ejm_y = 3;
+	} else if (Ejm_2nd == ":(") {
+		Ejm_y = 4;
+	} else if (Ejm_2nd == "):") {
+		Ejm_y = 5;
+	} else if (Ejm_2nd == "=)") {
+		Ejm_y = 6;
+	} else if (Ejm_2nd == "(=") {
+		Ejm_y = 7;
+	} else if (Ejm_2nd == ":|") {
+		Ejm_y = 8;
+	} else if (Ejm_2nd == "|:") {
+		Ejm_y = 9;
+	}
+} else {
+	if (Ejm_2nd[0] == "=" && Ejm_2nd[1] == "(") {
+		Ejm_y = 10;
+	} else if (Ejm_2nd[0] == "(" && Ejm_2nd[1] == ":") {
+		Ejm_y = 20;
+	} else if (Ejm_2nd[0] == ")" && Ejm_2nd[1] == "=") {
+		Ejm_y = 30;
+	} else if (Ejm_2nd[0] == ":" && Ejm_2nd[1] == "(") {
+		Ejm_y = 40;
+	} else if (Ejm_2nd[0] == ")" && Ejm_2nd[1] == ":") {
+		Ejm_y = 50;
+	} else if (Ejm_2nd[0] == "=" && Ejm_2nd[1] == ")") {
+		Ejm_y = 60;
+	} else if (Ejm_2nd[0] == "(" && Ejm_2nd[1] == "=") {
+		Ejm_y = 70;
+	} else if (Ejm_2nd[0] == ":" && Ejm_2nd[1] == "|") {
+		Ejm_y = 80;
+	} else if (Ejm_2nd[0] == "|" && Ejm_2nd[1] == ":") {
+		Ejm_y = 90;
+	}
+	if (Ejm_2nd[2] == "=" && Ejm_2nd[3] == "(") {
+		Ejm_y = Ejm_y + 1;
+	} else if (Ejm_2nd[2] == "(" && Ejm_2nd[3] == ":") {
+		Ejm_y = Ejm_y + 2;
+	} else if (Ejm_2nd[2] == ")" && Ejm_2nd[3] == "=") {
+		Ejm_y = Ejm_y + 3;
+	} else if (Ejm_2nd[2] == ":" && Ejm_2nd[3] == "(") {
+		Ejm_y = Ejm_y + 4;
+	} else if (Ejm_2nd[2] == ")" && Ejm_2nd[3] == ":") {
+		Ejm_y = Ejm_y + 5;
+	} else if (Ejm_2nd[2] == "=" && Ejm_2nd[3] == ")") {
+		Ejm_y = Ejm_y + 6;
+	} else if (Ejm_2nd[2] == "(" && Ejm_2nd[3] == "=") {
+		Ejm_y = Ejm_y + 7;
+	} else if (Ejm_2nd[2] == ":" && Ejm_2nd[3] == "|") {
+		Ejm_y = Ejm_y + 8;
+	} else if (Ejm_2nd[2] == "|" && Ejm_2nd[3] == ":") {
+		Ejm_y = Ejm_y + 9;
+	}
+}
+
+if (Ejm_sym == "+") {
+	console.log(Ejm_x + Ejm_y);
+} else if (Ejm_sym == "-") {
+	console.log(Ejm_x - Ejm_y);
+}

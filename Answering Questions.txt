@@ -1,0 +1,9 @@
+//Answering Questions [Anq]
+console.log("Keep track of previous answer.");
+console.log("Check if Serial Number has duplicates.");
+console.log("Strikes? YES if any strikes.");
+console.log("Many strikes? YES if more than one strike.");
+console.log("Question contains 3 lines, not 6.");
+console.log("Wonderful phrase, not passing craze.");
+console.log("Not a dirty cheater... totally.");
+console.log("DON'T EVER ABORT");

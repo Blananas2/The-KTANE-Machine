@@ -1,0 +1,159 @@
+//Cruel Piano Keys [Cpk]
+//o=Breve ~=Turn #=Sharp x=DoubleSharp ^=Fermata n=DownBow 3=Clef 7=16thRest /=CutTime c=CommonTime H=Natural w=Mordent b=Flat E=QuarterRest
+var Cpk_Symbols = "";
+var Cpk_SNdigits = ""; //All SN digits left to right
+var Cpk_SNvowel = false;
+var Cpk_Batt = 0;
+var Cpk_Hold = 0;
+var Cpk_Indicators = 0;
+var Cpk_Unlit = 0;
+var Cpk_IndwoVowels = false; //Indicator without vowels
+var Cpk_LitSND = false;
+var Cpk_Ports = 0;
+var Cpk_PortPlates = 0;
+var Cpk_DupePort = false; //Duplicate
+var Cpk_EmptyPortPlate = false;
+var Cpk_DVI = false;
+var Cpk_RCA = false;
+var Cpk_SolvedMods = 0;
+var Cpk_MinutesLeft = 0;
+var Cpk_Strikes = 0;
+
+//C C# D D# E F F# G G# A A# B
+//0 1  2 3	4 5 6  7 8	9 10 11
+
+var Cpk_Prime = [[5, 2, 6, 8, 0, 11, 10, 1, 7, 4, 3, 9], [10, 9, 0, 4, 1, 2, 3, 7, 11, 6, 8, 5], [6, 11, 9, 8, 2, 0, 7, 1, 5, 3, 4, 10], [4, 3, 2, 6, 5, 10, 8, 1, 0, 11, 7, 9], [2, 4, 9, 10, 0, 11, 1, 8, 5, 6, 3, 7], [0, 3, 6, 2, 5, 1, 11, 9, 7, 10, 4, 8], [8, 0, 10, 1, 4, 7, 11, 3, 9, 2, 5, 6], [4, 9, 1, 11, 7, 8, 10, 3, 6, 5, 0, 2], [8, 3, 2, 4, 10, 1, 6, 7, 5, 9, 0, 11], [3, 8, 0, 11, 2, 1, 6, 10, 5, 7, 9, 4]];
+var Cpk_Inver = [[5, 8, 4, 2, 10, 11, 0, 9, 3, 6, 7, 1], [10, 11, 8, 4, 7, 6, 5, 1, 9, 2, 0, 3], [6, 1, 3, 4, 10, 0, 5, 11, 7, 9, 8, 2], [4, 5, 6, 2, 3, 10, 0, 7, 8, 9, 1, 11], [2, 0, 7, 6, 4, 5, 3, 8, 11, 10, 1, 9], [0, 9, 6, 10, 7, 11, 1, 3, 5, 2, 8, 4], [8, 4, 6, 3, 0, 9, 5, 1, 7, 2, 11, 10], [4, 11, 7, 9, 1, 0, 10, 5, 2, 3, 8, 6], [8, 1, 2, 0, 6, 3, 10, 9, 11, 7, 4, 5], [3, 10, 6, 7, 4, 5, 0, 8, 1, 11, 9, 2]];
+var Cpk_Retro = [[9, 3, 4, 7, 1, 10, 11, 0, 8, 6, 2, 5], [5, 8, 6, 11, 7, 3, 2, 1, 4, 0, 9, 10], [10, 4, 3, 5, 1, 7, 0, 2, 8, 9, 11, 6], [9, 7, 11, 0, 1, 8, 10, 5, 6, 2, 3, 4], [7, 3, 6, 5, 8, 1, 11, 0, 10, 9, 4, 2], [8, 4, 10, 7, 9, 11, 1, 5, 2, 6, 3, 0], [6, 5, 2, 9, 3, 11, 7, 4, 1, 10, 0, 8], [2, 0, 5, 6, 3, 10, 8, 7, 11, 1, 9, 4], [11, 0, 9, 5, 7, 6, 1, 10, 4, 2, 3, 8], [4, 9, 7, 5, 10, 6, 1, 2, 11, 0, 8, 3]];
+var Cpk_RtInv = [[1, 7, 6, 3, 9, 0, 11, 10, 2, 4, 8, 5], [3, 0, 2, 9, 1, 5, 6, 7, 4, 8, 11, 10], [2, 8, 9, 7, 11, 5, 0, 10, 4, 3, 1, 6], [11, 1, 9, 8, 7, 0, 10, 3, 2, 6, 5, 4], [9, 1, 10, 11, 8, 3, 5, 4, 6, 7, 0, 2], [4, 8, 2, 5, 3, 1, 11, 7, 10, 6, 9, 0], [10, 11, 2, 7, 1, 5, 9, 0, 3, 6, 4, 8], [6, 8, 3, 2, 5, 10, 0, 1, 9, 7, 11, 4], [5, 4, 7, 11, 9, 10, 3, 6, 0, 2, 1, 8], [2, 9, 11, 1, 8, 0, 5, 4, 7, 6, 10, 3]];
+
+var Cpk_NoteSet;
+var Cpk_Trans = 0;
+var Cpk_NumNotes = false; //Set to true if note sets are numbers.
+var Cpk_SpecNote = -1;
+var Cpk_Solution = "";
+var Cpk_Temp = 0;
+
+if (Cpk_Symbols.includes("o") && Cpk_Symbols.includes("~") && Cpk_Indicators >= 2) {
+	Cpk_NoteSet = Cpk_RtInv[Cpk_SNdigits[0]];
+	Cpk_NumNotes = true;
+} else if ((Cpk_Symbols.includes("#") || Cpk_Symbols.includes("x")) && Cpk_EmptyPortPlate == true) {
+	Cpk_NoteSet = Cpk_Prime[Cpk_Hold % 10];
+	Cpk_Trans = Cpk_MinutesLeft * -1;
+	Cpk_NumNotes = true;
+} else if ((Cpk_Symbols.includes("^") || Cpk_Symbols.includes("n")) && Cpk_DupePort == true) {
+	Cpk_NoteSet = Cpk_Inver[Cpk_SolvedMods % 10];
+	Cpk_NumNotes = true;
+} else if (Cpk_Symbols.includes("3") && Cpk_Symbols.includes("7") && Cpk_PortPlates >= 2) {
+	Cpk_NoteSet = Cpk_Retro[9 - Cpk_Unlit];
+	Cpk_NumNotes = true;
+} else if ((Cpk_Symbols.includes("/") || Cpk_Symbols.includes("c")) && Cpk_SNvowel == true) {
+	Cpk_NoteSet = Cpk_Retro[Cpk_Strikes % 10];
+	Cpk_Trans = -3;
+	Cpk_NumNotes = true;
+} else if ((Cpk_Symbols.includes("H") || Cpk_Symbols.includes("w")) && Cpk_Batt % 2 == 0) {
+	if (Cpk_DVI == true) {
+		Cpk_NoteSet = Cpk_Prime[7];
+	} else {
+		Cpk_NoteSet = Cpk_Prime[3];
+	}
+	Cpk_Trans = Cpk_Ports;
+	Cpk_NumNotes = true;
+} else if ((Cpk_Symbols.includes("b") || Cpk_Symbols.includes("E")) && Cpk_IndwoVowels == true) {
+	Cpk_NoteSet = "G# C# D C F# D# A# A B G E F";
+} else if ((Cpk_Symbols.includes("n") || Cpk_Symbols.includes("7")) && Cpk_Ports <= 1) {
+	Cpk_NoteSet = "G D# F# F G# C# B C A# A E D";
+} else if (Cpk_Symbols.includes("o") || Cpk_Symbols.includes("x")) {
+	Cpk_NoteSet = "C D# F# D F C# B A G A# E G#";
+} else if (Cpk_Symbols.includes("b") && Cpk_SNdigits[Cpk_SNdigits.length - 1]) {
+	Cpk_NoteSet = "Bb Bb Bb Bb Gb Ab Bb Ab Bb [Final Fantasy]";
+} else if ((Cpk_Symbols.includes("c") || Cpk_Symbols.includes("#")) && Cpk_Hold >= 2) {
+	Cpk_NoteSet = "Eb Eb D D Eb Eb D Eb Eb D D Eb [Guile's Theme]";
+} else if (Cpk_Symbols.includes("H") && Cpk_Symbols.includes("^")) {
+	Cpk_NoteSet = "E F# F# F# F# E E E [James Bond]";
+} else if ((Cpk_Symbols.includes("/") || Cpk_Symbols.includes("~")) && Cpk_RCA == true) {
+	Cpk_NoteSet = "Bb A Bb F Eb Bb A Bb F Eb [Jurassic Park]";
+} else if (Cpk_Symbols.includes("3") && Cpk_LitSND == true) {
+	Cpk_NoteSet = "E E E C E G G [Super Mario]";
+} else if ((Cpk_Symbols.includes("w") || Cpk_Symbols.includes("^") || Cpk_Symbols.includes("c")) && Cpk_Batt >= 3) {
+	Cpk_NoteSet = "C# D E F C# D E F Bb A [Pink Panther]";
+} else if (Cpk_Symbols.includes("b") && Cpk_Symbols.includes("#")) {
+	Cpk_NoteSet = "G G C G G C G C [Superman]";
+} else if ((Cpk_Symbols.includes("/") || Cpk_Symbols.includes("w")) && (Cpk_SNdigits.includes("3") || Cpk_SNdigits.includes("7") || Cpk_SNdigits.includes("8"))) {
+	Cpk_NoteSet = "A E F G F E D D F A [Tetris Theme A]";
+} else if (Cpk_Symbols.includes("H") || Cpk_Symbols.includes("~") || Cpk_Symbols.includes("3")) {
+	Cpk_NoteSet = "G G G Eb Bb G Eb Bb G [Empire Strikes Back]";
+} else {
+	Cpk_NoteSet = "B D A G A B D A [Zelda's Lullaby] YOU MADE IT ALL THE WAY DOWN!";
+}
+
+if (Cpk_NumNotes == true) {
+	if (Cpk_Trans != 0) {
+		for (i=0; i<12; i++) {
+			Cpk_SpecNote = Cpk_SpecNote + 1;
+			Cpk_Temp = Cpk_NoteSet[Cpk_SpecNote];
+			Cpk_Temp = (Cpk_Temp + Cpk_Trans + 12)% 12;
+			if (Cpk_Temp == 0) {
+				Cpk_Solution = (Cpk_Solution + "C ");
+			} else if (Cpk_Temp == 1) {
+				Cpk_Solution = (Cpk_Solution + "C# ");
+			} else if (Cpk_Temp == 2) {
+				Cpk_Solution = (Cpk_Solution + "D ");
+			} else if (Cpk_Temp == 3) {
+				Cpk_Solution = (Cpk_Solution + "D# ");
+			} else if (Cpk_Temp == 4) {
+				Cpk_Solution = (Cpk_Solution + "E ");
+			} else if (Cpk_Temp == 5) {
+				Cpk_Solution = (Cpk_Solution + "F ");
+			} else if (Cpk_Temp == 6) {
+				Cpk_Solution = (Cpk_Solution + "F# ");
+			} else if (Cpk_Temp == 7) {
+				Cpk_Solution = (Cpk_Solution + "G ");
+			} else if (Cpk_Temp == 8) {
+				Cpk_Solution = (Cpk_Solution + "G# ");
+			} else if (Cpk_Temp == 9) {
+				Cpk_Solution = (Cpk_Solution + "A ");
+			} else if (Cpk_Temp == 10) {
+				Cpk_Solution = (Cpk_Solution + "A# ");
+			} else if (Cpk_Temp == 11) {
+				Cpk_Solution = (Cpk_Solution + "B ");
+			}
+		}
+	} else {
+		for (i=0; i<12; i++) {
+			Cpk_SpecNote = Cpk_SpecNote + 1;
+			Cpk_Temp = Cpk_NoteSet[Cpk_SpecNote];
+			if (Cpk_Temp == 0) {
+				Cpk_Solution = (Cpk_Solution + "C ");
+			} else if (Cpk_Temp == 1) {
+				Cpk_Solution = (Cpk_Solution + "C# ");
+			} else if (Cpk_Temp == 2) {
+				Cpk_Solution = (Cpk_Solution + "D ");
+			} else if (Cpk_Temp == 3) {
+				Cpk_Solution = (Cpk_Solution + "D# ");
+			} else if (Cpk_Temp == 4) {
+				Cpk_Solution = (Cpk_Solution + "E ");
+			} else if (Cpk_Temp == 5) {
+				Cpk_Solution = (Cpk_Solution + "F ");
+			} else if (Cpk_Temp == 6) {
+				Cpk_Solution = (Cpk_Solution + "F# ");
+			} else if (Cpk_Temp == 7) {
+				Cpk_Solution = (Cpk_Solution + "G ");
+			} else if (Cpk_Temp == 8) {
+				Cpk_Solution = (Cpk_Solution + "G# ");
+			} else if (Cpk_Temp == 9) {
+				Cpk_Solution = (Cpk_Solution + "A ");
+			} else if (Cpk_Temp == 10) {
+				Cpk_Solution = (Cpk_Solution + "A# ");
+			} else if (Cpk_Temp == 11) {
+				Cpk_Solution = (Cpk_Solution + "B ");
+			}
+		}
+	}
+} else {
+	console.log(Cpk_NoteSet);
+}
+
+if (Cpk_SpecNote == 11){
+	console.log(Cpk_Solution);
+}

@@ -1,0 +1,80 @@
+//Complicated Wires [Cpw]
+//         Wire 123456
+var Cpw_Color = "000000"; //W,R,B,P P=R+B
+var Cpw_Other = "000000"; //N=None, L=LED, S=Star, B=Both
+var Cpw_Batt = 0;
+var Cpw_SN = 0; //last digit of SN // 0:even, 1:odd
+var Cpw_Par = false;
+
+Cpw_SN = Cpw_SN % 2;
+
+Cpw_Venn (0);
+Cpw_Venn (1);
+Cpw_Venn (2);
+Cpw_Venn (3);
+Cpw_Venn (4);
+Cpw_Venn (5);
+
+function Cpw_Venn (n) {
+	if (Cpw_Color[n] == "W") {
+		if (Cpw_Other[n] == "N" || Cpw_Other[n] == "S") {
+			console.log("Cut");
+		} else if (Cpw_Other[n] == "L") {
+			console.log("Skip");
+		} else if (Cpw_Other[n] == "B") {
+			if (Cpw_Batt >= 2) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		}
+	} else if (Cpw_Color[n] == "R") {
+		if (Cpw_Other[n] == "L" || Cpw_Other[n] == "B") {
+			if (Cpw_Batt >= 2) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Cpw_Other[n] == "S") {
+			console.log("Cut");
+		} else if (Cpw_Other[n] == "N") {
+			if (Cpw_SN == 0) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		}
+	} else if (Cpw_Color[n] == "B") {
+		if (Cpw_Other[n] == "L" || Cpw_Other[n] == "B") {
+			if (Cpw_Par == true) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Cpw_Other[n] == "N") {
+			if (Cpw_SN == 0) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Cpw_Other[n] == "S") {
+			console.log("Skip");
+		}
+	} else if (Cpw_Color[n] == "P") {
+		if (Cpw_Other[n] == "N" || Cpw_Other[n] == "L") {
+			if (Cpw_SN == 0) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Cpw_Other[n] == "S") {
+			if (Cpw_Par == true) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Cpw_Other[n] == "B") {
+			console.log("Skip");
+		}		
+	}
+}

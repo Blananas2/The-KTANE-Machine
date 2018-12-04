@@ -1,0 +1,21 @@
+//Anagrams [Ana]
+var Ana_Word = ""; //Word given
+
+Ana_gram("STREAM", "MASTER", "TAMERS");
+Ana_gram("LOOPED", "POODLE", "POOLED");
+Ana_gram("CELLAR", "CALLER", "RECALL");
+Ana_gram("SEATED", "SEDATE", "TEASED");
+Ana_gram("RESCUE", "SECURE", "RECUSE");
+Ana_gram("RASHES", "SHEARS", "SHARES");
+Ana_gram("BARELY", "BARLEY", "BLEARY");
+Ana_gram("DUSTER", "RUSTED", "RUDEST");
+
+function Ana_gram (a, b, c) {
+	if (Ana_Word == a) {
+		console.log(b + " or " + c);
+	} else if (Ana_Word == b) {
+		console.log(a + " or " + c);
+	} else if (Ana_Word == c) {
+		console.log(a + " or " + b);
+	}
+}

@@ -1,0 +1,96 @@
+//Switches [Sws]
+//1-5 is up left to right. 0 for none up.
+var Sws_IsUp = 0; //switches up
+var Sws_Need = 0; //lights up
+
+var Sws_Sol = "";
+
+if (Sws_IsUp == 1) {
+	Sws_Sol = "1";
+} else if (Sws_IsUp == 2) {
+	Sws_Sol = "2";
+} else if (Sws_IsUp == 4) {
+	Sws_Sol = "4";
+} else if (Sws_IsUp == 5) {
+	Sws_Sol = "5";
+} else if (Sws_IsUp == 13) {
+	Sws_Sol = "31";
+} else if (Sws_IsUp == 15) {
+	Sws_Sol = "51";
+} else if (Sws_IsUp == 23) {
+	Sws_Sol = "32";
+} else if (Sws_IsUp == 24) {
+	Sws_Sol = "42";
+} else if (Sws_IsUp == 25) {
+	Sws_Sol = "52";
+} else if (Sws_IsUp == 34) {
+	Sws_Sol = "34";
+} else if (Sws_IsUp == 35) {
+	Sws_Sol = "35";
+} else if (Sws_IsUp == 45) {
+	Sws_Sol = "45";
+} else if (Sws_IsUp == 125) {
+	Sws_Sol = "251";
+} else if (Sws_IsUp == 134) {
+	Sws_Sol = "134";
+} else if (Sws_IsUp == 135) {
+	Sws_Sol = "135";
+} else if (Sws_IsUp == 234) {
+	Sws_Sol = "234";
+} else if (Sws_IsUp == 235) {
+	Sws_Sol = "235";
+} else if (Sws_IsUp == 345) {
+	Sws_Sol = "345";
+} else if (Sws_IsUp == 1235) {
+	Sws_Sol = "1235";
+} else if (Sws_IsUp == 1245) {
+	Sws_Sol = "4251";
+} else if (Sws_IsUp == 12345) {
+	Sws_Sol = "34251";
+}
+
+if (Sws_Need == 1) {
+	Sws_Sol = Sws_Sol + "1";
+} else if (Sws_Need == 2) {
+	Sws_Sol = Sws_Sol + "2";
+} else if (Sws_Need == 4) {
+	Sws_Sol = Sws_Sol + "4";
+} else if (Sws_Need == 5) {
+	Sws_Sol = Sws_Sol + "5";
+} else if (Sws_Need == 13) {
+	Sws_Sol = Sws_Sol + "13";
+} else if (Sws_Need == 15) {
+	Sws_Sol = Sws_Sol + "15";
+} else if (Sws_Need == 23) {
+	Sws_Sol = Sws_Sol + "23";
+} else if (Sws_Need == 24) {
+	Sws_Sol = Sws_Sol + "24";
+} else if (Sws_Need == 25) {
+	Sws_Sol = Sws_Sol + "25";
+} else if (Sws_Need == 34) {
+	Sws_Sol = Sws_Sol + "43";
+} else if (Sws_Need == 35) {
+	Sws_Sol = Sws_Sol + "53";
+} else if (Sws_Need == 45) {
+	Sws_Sol = Sws_Sol + "54";
+} else if (Sws_Need == 125) {
+	Sws_Sol = Sws_Sol + "152";
+} else if (Sws_Need == 134) {
+	Sws_Sol = Sws_Sol + "431";
+} else if (Sws_Need == 135) {
+	Sws_Sol = Sws_Sol + "531";
+} else if (Sws_Need == 234) {
+	Sws_Sol = Sws_Sol + "432";
+} else if (Sws_Need == 235) {
+	Sws_Sol = Sws_Sol + "532";
+} else if (Sws_Need == 345) {
+	Sws_Sol = Sws_Sol + "543";
+} else if (Sws_Need == 1235) {
+	Sws_Sol = Sws_Sol + "5321";
+} else if (Sws_Need == 1245) {
+	Sws_Sol = Sws_Sol + "1524";
+} else if (Sws_Need == 12345) {
+	Sws_Sol = Sws_Sol + "15243";
+}
+
+console.log("Flip: " + Sws_Sol);

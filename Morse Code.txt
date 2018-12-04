@@ -1,0 +1,59 @@
+//Morse Code [Mrc]
+var Mrc_LetterA = ""; //Dots and dashes or letters allowed.
+var Mrc_LetterB = "";
+var Mrc_LetterC = "";
+var Mrc_LetterD = "";
+var Mrc_LetterE = "";
+var Mrc_LetterF = "";
+
+Mrc_Decoding (Mrc_LetterA);
+Mrc_Decoding (Mrc_LetterB);
+Mrc_Decoding (Mrc_LetterC);
+Mrc_Decoding (Mrc_LetterD);
+Mrc_Decoding (Mrc_LetterE);
+Mrc_Decoding (Mrc_LetterF);
+
+function Mrc_Decoding (l) {
+	if (l == ".-") {
+		console.log("A -> [beats, break, halls, leaks, steak]");
+	} else if (l == "-...") {
+		console.log("B -> [beats, bistro, bombs*, boxes, break, brick, strobe]");
+	} else if (l == "-.-.") {
+		console.log("C -> [brick, flick, slick, trick, vector]");
+	} else if (l == ".") {
+		console.log("E -> [beats, boxes, break, leaks, shell, steak, strobe, vector]");
+	} else if (l == "..-.") {
+		console.log("F -> FLICK! 3.555 MHz");
+	} else if (l == "--.") {
+		console.log("G -> STING! 3.592 MHz");
+	} else if (l == "....") {
+		console.log("H -> [halls, shell]");
+	} else if (l == "..") {
+		console.log("I -> [bistro, brick, flick, slick, sting, trick]");
+	} else if (l == "-.-") {
+		console.log("K -> [break, brick, flick, leaks, slick, steak, trick]");
+	} else if (l == ".-..") {
+		console.log("L -> [flick, halls*, leaks, shell*, slick]");
+	} else if (l == "--") {
+		console.log("M -> BOMBS! 3.565 MHz");
+	} else if (l == "-.") {
+		console.log("N -> STING! 3.592 MHz");
+	} else if (l == "---") {
+		console.log("O -> [bistro, bombs, boxes, strobe, vector]");
+	} else if (l == ".-.") {
+		console.log("R -> [bistro, break, brick, strobe, trick, vector]");
+	} else if (l == "...") {
+		console.log("S -> [beats, bistro, bombs, boxes, halls, leaks, shell, slick, steak, sting, strobe]");
+	} else if (l == "-") {
+		console.log("T -> [beats, bistro, steak, sting, strobe, trick, vector]");
+	} else if (l == "...-") {
+		console.log("V -> VECTOR! 3.595 MHz");
+	} else if (l == "-..-") {
+		console.log("X -> BOXES! 3.535 MHz");
+	} else {
+		console.log(l);
+	}
+}
+
+console.log("=========================================================================================================================");
+console.log("beats=600, bistro=552, bombs=565, boxes=535, break=572, brick=575, flick=555, halls=515, leaks=542, shell=505, slick=522, steak=582, sting=592, strobe=545, trick=532, vector=595");

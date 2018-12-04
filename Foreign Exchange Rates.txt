@@ -1,0 +1,90 @@
+//Foreign Exchange Rates [Fer]
+var Fer_LEDs = "R"; //R or G
+var Fer_top = "";
+var Fer_mid = "";
+var Fer_bot = 0;
+var Fer_Batt = 0; //Batteries
+
+var Fer_extra = "";
+
+Fer_thing(Fer_top);
+Fer_thing(Fer_mid);
+
+if (Fer_Batt >= 2) {
+	Fer_extra = Fer_top;
+	Fer_top = Fer_mid;
+	Fer_mid = Fer_extra;
+}
+
+if (Fer_LEDs == "G") {
+	console.log("http://api.exchangeratesapi.io/latest?base=" + Fer_top + "&symbols=" + Fer_mid);
+	console.log("Multiply rate by " + Fer_bot);
+	console.log("Hit the button that's the same position as the 2nd digit. (1 if it's a 0)");
+} else {
+	if (Fer_mid == "AUD") {Fer_extra = "3"}
+	if (Fer_mid == "BGN") {Fer_extra = "7"}
+	if (Fer_mid == "BRL") {Fer_extra = "8"}
+	if (Fer_mid == "CAD") {Fer_extra = "2"}
+	if (Fer_mid == "CHF") {Fer_extra = "5"}
+	if (Fer_mid == "CNY") {Fer_extra = "5"}
+	if (Fer_mid == "DKK") {Fer_extra = "1"}
+	if (Fer_mid == "EUR") {Fer_extra = "7"}
+	if (Fer_mid == "GBP") {Fer_extra = "2"}
+	if (Fer_mid == "HKD") {Fer_extra = "4"}
+	if (Fer_mid == "HRK") {Fer_extra = "9"}
+	if (Fer_mid == "HUF") {Fer_extra = "4"}
+	if (Fer_mid == "IDR") {Fer_extra = "6"}
+	if (Fer_mid == "ILS") {Fer_extra = "7"}
+	if (Fer_mid == "INR") {Fer_extra = "5"}
+	if (Fer_mid == "JPY") {Fer_extra = "9"}
+	if (Fer_mid == "KRW") {Fer_extra = "1"}
+	if (Fer_mid == "MXN") {Fer_extra = "8"}
+	if (Fer_mid == "MYR") {Fer_extra = "5"}
+	if (Fer_mid == "NOK") {Fer_extra = "7"}
+	if (Fer_mid == "NZD") {Fer_extra = "5"}
+	if (Fer_mid == "PHP") {Fer_extra = "1"}
+	if (Fer_mid == "PLN") {Fer_extra = "8"}
+	if (Fer_mid == "RON") {Fer_extra = "4"}
+	if (Fer_mid == "RUB") {Fer_extra = "4"}
+	if (Fer_mid == "SEK") {Fer_extra = "5"}
+	if (Fer_mid == "SGD") {Fer_extra = "1"}
+	if (Fer_mid == "THB") {Fer_extra = "6"}
+	if (Fer_mid == "TRY") {Fer_extra = "4"}
+	if (Fer_mid == "USD") {Fer_extra = "4"}
+	if (Fer_mid == "ZAR") {Fer_extra = "1"}
+	console.log("Hit the button in position " + Fer_extra + ".");
+}
+
+function Fer_thing (x) {
+	if (x == "036") {x = "AUD"}
+	if (x == "124") {x = "CAD"}
+	if (x == "156") {x = "CNY"}
+	if (x == "191") {x = "HRK"}
+	if (x == "208") {x = "DKK"}
+	if (x == "344") {x = "HKD"}
+	if (x == "348") {x = "HUF"}
+	if (x == "356") {x = "INR"}
+	if (x == "360") {x = "IDR"}
+	if (x == "376") {x = "ILS"}
+	if (x == "392") {x = "JPY"}
+	if (x == "410") {x = "KRW"}
+	if (x == "458") {x = "MYR"}
+	if (x == "484") {x = "MXN"}
+	if (x == "554") {x = "NZD"}
+	if (x == "578") {x = "NOK"}
+	if (x == "608") {x = "PHP"}
+	if (x == "643") {x = "RUB"}
+	if (x == "702") {x = "SGD"}
+	if (x == "710") {x = "ZAR"}
+	if (x == "752") {x = "SEK"}
+	if (x == "756") {x = "CHF"}
+	if (x == "764") {x = "THB"}
+	if (x == "826") {x = "GBP"}
+	if (x == "840") {x = "USD"}
+	if (x == "946") {x = "RON"}
+	if (x == "949") {x = "TRY"}
+	if (x == "975") {x = "BGN"}
+	if (x == "978") {x = "EUR"}
+	if (x == "985") {x = "PLN"}
+	if (x == "986") {x = "BRL"}
+}

@@ -1,0 +1,12 @@
+//Knob [Knb]
+var Knb_Lights = "43"; //Left # = Left LEDs lit, same for right.
+
+if (Knb_Lights == "03" || Knb_Lights == "14") {
+	console.log("LEFT");
+} else if (Knb_Lights == "32" || Knb_Lights == "53") {
+	console.log("DOWN");
+} else if (Knb_Lights == "43" || Knb_Lights == "44") {
+	console.log("UP");
+} else if (Knb_Lights == "52" || Knb_Lights == "54") {
+	console.log("RIGHT");
+}

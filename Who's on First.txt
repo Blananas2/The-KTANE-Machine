@@ -1,0 +1,88 @@
+//Who's on First [Wof]
+var Wof_Display = "";
+var Wof_Buttons = ["", "", "", "", "", ""]; //Reading order
+
+var Wof_Lists = ["BLANK: WAIT, RIGHT, OKAY, MIDDLE, BLANK,", "DONE: SURE, UH HUH, NEXT, WHAT?, YOUR, UR, YOU'RE, HOLD, LIKE, YOU, U, YOU ARE, UH UH, DONE,", "FIRST: LEFT, OKAY, YES, MIDDLE, NO, RIGHT, NOTHING, UHHH, WAIT, READY, BLANK, WHAT, PRESS, FIRST,", "HOLD: YOU ARE, U, DONE, UH UH, YOU, UR, SURE, WHAT?, YOU'RE, NEXT, HOLD,", "LEFT: RIGHT, LEFT,", "LIKE: YOU'RE, NEXT, U, UR, HOLD, DONE, UH UH, WHAT?, UH HUH, YOU, LIKE,", "MIDDLE: BLANK, READY, OKAY, WHAT, NOTHING, PRESS, NO, WAIT, LEFT, MIDDLE,", "NEXT: WHAT?, UH HUH, UH UH, YOUR, HOLD, SURE, NEXT,", "NO: BLANK, UHHH, WAIT, FIRST, WHAT, READY, RIGHT, YES, NOTHING, LEFT, PRESS, OKAY, NO,", "NOTHING: UHHH, RIGHT, OKAY, MIDDLE, YES, BLANK, NO, PRESS, LEFT, WHAT, WAIT, FIRST, NOTHING,", "OKAY: MIDDLE, NO, FIRST, YES, UHHH, NOTHING, WAIT, OKAY,", "PRESS: RIGHT, MIDDLE, YES, READY, PRESS,", "READY: YES, OKAY, WHAT, MIDDLE, LEFT, PRESS, RIGHT, BLANK, READY,", "RIGHT: YES, NOTHING, READY, PRESS, NO, WAIT, WHAT, RIGHT,", "SURE: YOU ARE, DONE, LIKE, YOU'RE, YOU, HOLD, UH HUH, UR, SURE,", "U: UH HUH, SURE, NEXT, WHAT?, YOU'RE, UR, UH UH, DONE, U,", "UH HUH: UH HUH,", "UH UH: UR, U, YOU ARE, YOU'RE, NEXT, UH UH,", "UHHH: READY, NOTHING, LEFT, WHAT, OKAY, YES, RIGHT, NO, PRESS, BLANK, UHHH,", "UR: DONE, U, UR,", "WAIT: UHHH, NO, BLANK, OKAY, YES, LEFT, FIRST, PRESS, WHAT, WAIT,", "WHAT: UHHH, WHAT,", "WHAT?: YOU, HOLD, YOU'RE, YOUR, U, DONE, UH UH, LIKE, YOU ARE, UH HUH, UR, NEXT, WHAT?,", "YES: OKAY, RIGHT, UHHH, MIDDLE, FIRST, WHAT, PRESS, READY, NOTHING, YES,", "YOU ARE: YOUR, NEXT, LIKE, UH HUH, WHAT?, DONE, UH UH, HOLD, YOU, U, YOU'RE, SURE, UR, YOU ARE,", "YOU: SURE, YOU ARE, YOUR, YOU'RE, NEXT, UH HUH, UR, HOLD, WHAT?, YOU,", "YOUR: UH UH, YOU ARE, UH HUH, YOUR,", "YOU'RE: YOU, YOU'RE"];
+var Wof_Found;
+var Wof_FoundList;
+
+if (Wof_Display == "UR") {
+	Wof_Found = Wof_Buttons[0];
+} else if (Wof_Display == "C" || (Wof_Display == "FIRST" || Wof_Display == "OKAY")) {
+	Wof_Found = Wof_Buttons[1];
+} else if ((Wof_Display == "LED" || Wof_Display == "NOTHING") || (Wof_Display == "THEY ARE" || Wof_Display == "YES")) {
+	Wof_Found = Wof_Buttons[2];
+} else if (((Wof_Display == "BLANK" || Wof_Display == "READ") || (Wof_Display == "RED" || Wof_Display == "THEIR")) || ((Wof_Display == "YOU" || Wof_Display == "YOU'RE") || Wof_Display == "YOUR")) {
+	Wof_Found = Wof_Buttons[3];
+} else if ((Wof_Display == "" || Wof_Display == "LEED") || (Wof_Display == "REED" || Wof_Display == "THEY'RE")) {
+	Wof_Found = Wof_Buttons[4];
+} else if ((((Wof_Display == "CEE" || Wof_Display == "DISPLAY") || Wof_Display == "HOLD ON") || (Wof_Display == "NO" || Wof_Display == "SAYS")) || ((Wof_Display == "SEE" || Wof_Display == "THERE") || (Wof_Display == "YOU ARE" || Wof_Display == "LEAD"))) {
+	Wof_Found = Wof_Buttons[5];
+}
+
+if (Wof_Found == "BLANK") {
+	Wof_FoundList = Wof_Lists[0];
+} else if (Wof_Found == "DONE") {
+	Wof_FoundList = Wof_Lists[1];
+} else if (Wof_Found == "FIRST") {
+	Wof_FoundList = Wof_Lists[2];
+} else if (Wof_Found == "HOLD") {
+	Wof_FoundList = Wof_Lists[3];
+} else if (Wof_Found == "LEFT") {
+	Wof_FoundList = Wof_Lists[4];
+} else if (Wof_Found == "LIKE") {
+	Wof_FoundList = Wof_Lists[5];
+} else if (Wof_Found == "MIDDLE") {
+	Wof_FoundList = Wof_Lists[6];
+} else if (Wof_Found == "NEXT") {
+	Wof_FoundList = Wof_Lists[7];
+} else if (Wof_Found == "NO") {
+	Wof_FoundList = Wof_Lists[8];
+} else if (Wof_Found == "NOTHING") {
+	Wof_FoundList = Wof_Lists[9];
+} else if (Wof_Found == "OKAY") {
+	Wof_FoundList = Wof_Lists[10];
+} else if (Wof_Found == "PRESS") {
+	Wof_FoundList = Wof_Lists[11];
+} else if (Wof_Found == "READY") {
+	Wof_FoundList = Wof_Lists[12];
+} else if (Wof_Found == "RIGHT") {
+	Wof_FoundList = Wof_Lists[13];
+} else if (Wof_Found == "SURE") {
+	Wof_FoundList = Wof_Lists[14];
+} else if (Wof_Found == "U") {
+	Wof_FoundList = Wof_Lists[15];
+} else if (Wof_Found == "UH HUH") {
+	Wof_FoundList = Wof_Lists[16];
+} else if (Wof_Found == "UH UH") {
+	Wof_FoundList = Wof_Lists[17];
+} else if (Wof_Found == "UHHH") {
+	Wof_FoundList = Wof_Lists[18];
+} else if (Wof_Found == "UR") {
+	Wof_FoundList = Wof_Lists[19];
+} else if (Wof_Found == "WAIT") {
+	Wof_FoundList = Wof_Lists[20];
+} else if (Wof_Found == "WHAT") {
+	Wof_FoundList = Wof_Lists[21];
+} else if (Wof_Found == "WHAT?") {
+	Wof_FoundList = Wof_Lists[22];
+} else if (Wof_Found == "YES") {
+	Wof_FoundList = Wof_Lists[23];
+} else if (Wof_Found == "YOU ARE") {
+	Wof_FoundList = Wof_Lists[24];
+} else if (Wof_Found == "YOU") {
+	Wof_FoundList = Wof_Lists[25];
+} else if (Wof_Found == "YOUR") {
+	Wof_FoundList = Wof_Lists[26];
+} else if (Wof_Found == "YOU'RE") {
+	Wof_FoundList = Wof_Lists[27];
+}
+
+console.log(Wof_FoundList);
+console.log("");
+console.log(Wof_Buttons[0] + (" " + Wof_FoundList.indexOf(Wof_Buttons[0]+",")));
+console.log(Wof_Buttons[1] + (" " + Wof_FoundList.indexOf(Wof_Buttons[1]+",")));
+console.log(Wof_Buttons[2] + (" " + Wof_FoundList.indexOf(Wof_Buttons[2]+",")));
+console.log(Wof_Buttons[3] + (" " + Wof_FoundList.indexOf(Wof_Buttons[3]+",")));
+console.log(Wof_Buttons[4] + (" " + Wof_FoundList.indexOf(Wof_Buttons[4]+",")));
+console.log(Wof_Buttons[5] + (" " + Wof_FoundList.indexOf(Wof_Buttons[5]+",")));

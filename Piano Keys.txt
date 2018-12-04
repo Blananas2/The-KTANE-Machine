@@ -1,0 +1,32 @@
+//Piano Keys [Pnk]
+//Flat=b Common Time=c Sharp=# Natural=H Fermata=^ Cut Time=/ Turn=~ Clef=3 Mordent=w
+var Pnk_Symbols = "";
+var Pnk_SN = ""; //All SN digits, left to right
+var Pnk_hold = 0;
+var Pnk_RCA = false;
+var Pnk_litSND = false;
+var Pnk_batt = 0;
+
+var Pnk_lastSN = (Pnk_SN[Pnk_SN.length-1] % 2);
+
+if (Pnk_Symbols.includes("b") == true && Pnk_lastSN == 0) {
+	console.log("Bb Bb Bb Bb Gb Ab Bb Ab Bb [Final Fanstasy]");
+} else if ((Pnk_Symbols.includes("c") == true || Pnk_Symbols.includes("#") == true) && Pnk_hold >= 2) {
+	console.log("Eb Eb D D Eb Eb D Eb Eb D D Eb [Guiles Theme]");
+} else if (Pnk_Symbols.includes("H") == true && Pnk_Symbols.includes("^") == true) {
+	console.log("E F# F# F# F# E E E [James Bond]");
+} else if (((Pnk_Symbols.includes("/") == true || Pnk_Symbols.includes("~") == true) && Pnk_RCA == true)) {
+	console.log("Bb A Bb F Eb Bb A Bb F Eb [Jurassic Park]");
+} else if (Pnk_Symbols.includes("3") == true && Pnk_litSND == true) {
+	console.log("E E E C E G G [Super Mario]");
+} else if (((Pnk_Symbols.includes("w") == true || (Pnk_Symbols.includes("^") == true) || Pnk_Symbols.includes("c") == true) && Pnk_batt >= 3)) {
+	console.log("C# D E F C# D E F Bb A [Pink Panther]");
+} else if (Pnk_Symbols.includes("b") == true && Pnk_Symbols.includes("#") == true) {
+	console.log("G G C G G C G C [Superman]");
+} else if ((Pnk_Symbols.includes("/") == true || Pnk_Symbols.includes("w") == true) && (Pnk_SN.includes("3") == true || (Pnk_SN.includes("7") == true || Pnk_SN.includes("8") == true))) {
+	console.log("A E F G F E D D F A [Tetris Theme A]");
+} else if (Pnk_Symbols.includes("H") == true || (Pnk_Symbols.includes("~") == true || Pnk_Symbols.includes("3") == true)) {
+	console.log("G G G Eb Bb G Eb Bb G [Empire Strikes Back]");
+} else {
+	console.log("B D A G A B D A [Zelda's Lullaby]");
+}

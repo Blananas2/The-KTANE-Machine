@@ -1,0 +1,168 @@
+//Color Flash [Clf]
+var Clf_Color = "00000000"; //R,Y,G,B,M,W
+var Clf_Words = "00000000"; //R,Y,G,B,M,W
+
+var Clf_num = -1;
+var Clf_statA = 0;
+var Clf_statB = 0;
+var Clf_statC = 0;
+var Clf_statD = 0;
+var Clf_statE = 0;
+var Clf_statF = 0;
+
+if (Clf_Color[7] == "R") {
+	for (i=0; i<8; i++){
+		Clf_num = Clf_num + 1;
+		if (Clf_Color[Clf_num] == "G" || Clf_Words[Clf_num] == "G") {
+			if (Clf_Words[Clf_num] == "G") {
+				Clf_statA = Clf_statA + 1; //A = # of 'GREEN's
+			}
+			Clf_statC = Clf_statC + 1; //C = # of Greens used
+			if (Clf_statC == 3){
+				Clf_statF = Clf_num + 1; //F = ans. for 1st case
+			}
+		}
+		if (Clf_Color[Clf_num] == "B") {
+			Clf_statB = Clf_statB + 1; //B = # of color blues
+		}
+		if (Clf_Words[Clf_num] == "M") {
+			Clf_statD = Clf_num + 1; //D = ans. for 2nd case
+		}
+		if (Clf_Color[Clf_num] == "W" || Clf_Words[Clf_num] == "W") {
+			Clf_statE = Clf_num + 1; //E = ans. for otherwise
+		}
+	}
+	if (Clf_statA >= 3) {
+		console.log("YES on entry " + Clf_statF);
+	} else if (Clf_statB == 1) {
+		console.log("NO on entry " + Clf_statD);
+	} else {
+		console.log("YES on entry " + Clf_statE);
+	}
+} else if (Clf_Color[7] == "Y") {
+  for (i=0; i<8; i++) {
+    Clf_num = Clf_num + 1;
+    if (Clf_Color[Clf_num] == "G" && Clf_Words[Clf_num] == "B") {
+      Clf_statA = 1; //A = 1 if green 'BLUE'
+    }
+    if (Clf_statB === 0 && Clf_Color[Clf_num] == "G") {
+      Clf_statB = Clf_num + 1; //B = ans. for 1st case
+    }
+    if (Clf_Words[Clf_num] == "W" && (Clf_Color[Clf_num] == "W" || Clf_Color[Clf_num] == "R")) {
+      Clf_statC = 1; //C = 1 if white or red 'WHITE'
+    }
+    if (Clf_Color[Clf_num] != Clf_Words[Clf_num]) {
+      Clf_statD = Clf_statD + 1; //D = # of mismatches
+      if (Clf_statD == 2) {
+        Clf_statE = Clf_num + 1; //E = ans. for 2nd case
+      }
+    }
+    if (Clf_Color[Clf_num] == "M" || Clf_Words[Clf_num] == "M") {
+      Clf_statF = Clf_statF + 1; //F = ans. for otherwise
+    }
+  }
+  if (Clf_statA == 1) {
+    console.log("YES on entry " + Clf_statB);
+  } else if (Clf_statC == 1) {
+    console.log("YES on entry " + Clf_statE);
+  } else {
+    console.log("NO on entry " + Clf_statF);
+  }
+} else if (Clf_Color[7] == "G") {
+	for (i=0; i<8; i++) {
+		Clf_num = Clf_num + 1;
+		if (Clf_num != 0) {
+			if ((Clf_Words[Clf_num] == Clf_Words[Clf_num - 1]) && (Clf_Color[Clf_num] != Clf_Color[Clf_num - 1])) {
+				Clf_statA = 1; //A = 1 if consecutive word, different color
+			}
+		}
+		if (Clf_Words[Clf_num] == "M") {
+			Clf_statB = Clf_statB + 1; //B = # of 'MAGENTA's
+		}
+		if ((Clf_Color[Clf_num] == "Y" || Clf_Words[Clf_num] == "Y") && Clf_statC == 0) {
+			Clf_statC = Clf_num + 1; //C = ans. for 2nd case
+		}
+		if (Clf_Color[Clf_num] == Clf_Words[Clf_num]) {
+			Clf_statD = Clf_num + 1; //D = ans. for otherwise
+		}
+	}
+	if (Clf_statA == 1) {
+		console.log("NO on entry 5");
+	} else if (Clf_statB >= 3) {
+		console.log("NO on entry " + Clf_statC);
+	} else {
+		console.log("YES on entry " + Clf_statD);
+	}
+} else if (Clf_Color[7] == "B") {
+	for (i=0; i<8; i++) {
+		Clf_num = Clf_num + 1;
+		if (Clf_Color[Clf_num] != Clf_Words[Clf_num]) {
+			Clf_statA = Clf_statA + 1; //A = # of mismatches
+			if (Clf_statA == 1) {
+				Clf_statB = Clf_num + 1; //B = ans. for 1st case
+			}
+		}
+		if ((Clf_Color == "Y" && Clf_Words == "R") || (Clf_Color == "W" && Clf_Words == "Y")) {
+			Clf_statC = 1; //C = 1 if yellow 'RED' or white 'YELLOW'
+		}
+		if (Clf_Color == "R" && Clf_Words == "W") {
+			Clf_statD = Clf_num + 1; //D = ans. for 2nd case
+		}
+		if (Clf_Color == "G" || Clf_Words == "G") {
+			Clf_statE = Clf_num + 1; //E = ans. for otherwise
+		}
+	}
+	if (Clf_statA >= 3) {
+		console.log("YES on entry " + Clf_statB);
+	} else if (Clf_statC == 1) {
+		console.log("NO on entry " + Clf_statD);
+	} else {
+		console.log("YES on entry " + Clf_statE);
+	}
+} else if (Clf_Color[7] == "M") {
+	for (i=0; i<8; i++) {
+		Clf_num = Clf_num + 1;
+		if (Clf_num != 0) {
+			if ((Clf_Words[Clf_num] != Clf_Words[Clf_num - 1]) && (Clf_Color[Clf_num] == Clf_Color[Clf_num - 1])) {
+				Clf_statA = 1; //A = 1 if consecutive color, different words
+			}
+		}
+		if (Clf_Words[Clf_num] == "Y") {
+			Clf_statB = Clf_statB + 1; //B = # of 'YELLOW's
+			Clf_statD = Clf_num + 1; //D = ans. for 2nd case
+		}
+		if (Clf_Color[Clf_num] == "B") {
+			Clf_statC = Clf_statC + 1; //C = # of Blue words
+		}
+		if ((Clf_Words[6] == Clf_Color[Clf_num]) && Clf_statE == 0) {
+			Clf_statE = Clf_num + 1; //E = ans. for otherwise
+		}
+	}
+	if (Clf_statA == 1) {
+		console.log("YES on entry 3");
+	} else if (Clf_statB > Clf_statC) {
+		console.log("NO on entry " + Clf_statD);
+	} else {
+		console.log("NO on entry " + Clf_statE);
+	}
+} else if (Clf_Color[7] == "W") {
+	for (i=0; i<8; i++) {
+		Clf_num = Clf_num + 1;
+		if ((Clf_Color[Clf_num] == "B" || Clf_Words[Clf_num] == "B") && Clf_statA == 0) {
+			Clf_statA = Clf_num + 1; //A = ans. for 1st case
+		}
+		if (Clf_Color[Clf_num] == "R" && Clf_Words[Clf_num] == "Y") {
+			Clf_statB = 1; //B = 1 if red 'YELLOW'
+		}
+		if (Clf_Color[Clf_num] == "B") {
+			Clf_statC = Clf_num + 1; //C = ans. for 2nd case
+		}
+	}
+	if (Clf_Color[2] == Clf_Words[3] || Clf_Color[2] == Clf_Words[4]) {
+		console.log("NO on entry " + Clf_statA);
+	} else if (Clf_statB == 1) {
+		console.log("YES on entry " + Clf_statC);
+	} else {
+		console.log("Press NO any time");
+	}
+}

@@ -1,0 +1,166 @@
+//Memory [Mmr]
+               //012345
+var Mmr_Stage1 = "0 0000"; //X ABCD
+var Mmr_Stage2 = "0 0000"; //
+var Mmr_Stage3 = "0 0000"; //X is display
+var Mmr_Stage4 = "0 0000"; //ABCD are buttons
+var Mmr_Stage5 = "0 0000"; // 
+
+//Stage 1
+if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+	console.log("Press " + Mmr_Stage1[3]);
+} else if (Mmr_Stage1[0] == "3") {
+	console.log("Press " + Mmr_Stage1[4]);
+} else if (Mmr_Stage1[0] == "4") {
+	console.log("Press " + Mmr_Stage1[5]);
+}
+
+//Stage 2
+if (Mmr_Stage2[0] == "2" || Mmr_Stage2[0] == "4") {
+	if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+		console.log("Press " + Mmr_Stage2[3]);
+	} else if (Mmr_Stage1[0] == "3") {
+		console.log("Press " + Mmr_Stage2[4]);
+	} else if (Mmr_Stage1[0] == "4") {
+		console.log("Press " + Mmr_Stage2[5]);
+	}
+} else if (Mmr_Stage2[0] == "1") {
+	console.log("Press 4");
+} else if (Mmr_Stage2[0] == "3") {
+	console.log("Press " + Mmr_Stage2[2]);
+}
+
+//Stage 3
+if (Mmr_Stage3[0] == "1") {
+	if (Mmr_Stage2[0] == "2" || Mmr_Stage2[0] == "4") {
+		if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+			console.log("Press " + Mmr_Stage2[3]);
+		} else if (Mmr_Stage1[0] == "3") {
+			console.log("Press " + Mmr_Stage2[4]);
+		} else if (Mmr_Stage1[0] == "4") {
+			console.log("Press " + Mmr_Stage2[5]);
+		}
+	} else if (Mmr_Stage2[0] == "1") {
+		console.log("Press 4");
+	} else if (Mmr_Stage2[0] == "3") {
+		console.log("Press " + Mmr_Stage2[2]);
+	}
+} else if (Mmr_Stage3[0] == "2") {
+	if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+		console.log("Press " + Mmr_Stage1[3]);
+	} else if (Mmr_Stage1[0] == "3") {
+		console.log("Press " + Mmr_Stage1[4]);
+	} else if (Mmr_Stage1[0] == "4") {
+		console.log("Press " + Mmr_Stage1[5]);
+	}
+} else if (Mmr_Stage3[0] == "3") {
+	console.log("Press " + Mmr_Stage3[4]);
+} else if (Mmr_Stage3[0] == "4") {
+	console.log("Press 4");
+}
+
+//Stage 4
+if (Mmr_Stage4[0] == "3" || Mmr_Stage4[0] == "4") {
+	if (Mmr_Stage2[0] == "2" || Mmr_Stage2[0] == "4") {
+		if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+			console.log("Press " + Mmr_Stage4[3]);
+		} else if (Mmr_Stage1[0] == "3") {
+			console.log("Press " + Mmr_Stage4[4]);
+		} else if (Mmr_Stage1[0] == "4") {
+			console.log("Press " + Mmr_Stage4[5]);
+		}
+	} else if (Mmr_Stage2[0] == "1") {
+		console.log("Press " + (Mmr_Stage4[Mmr_Stage2.indexOf("4")]));
+	} else if (Mmr_Stage2[0] == "3") {
+		console.log("Press " + Mmr_Stage4[2]);
+	}
+} else if (Mmr_Stage4[0] == "1") {
+	if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+		console.log("Press " + Mmr_Stage4[3]);
+	} else if (Mmr_Stage1[0] == "3") {
+		console.log("Press " + Mmr_Stage4[4]);
+	} else if (Mmr_Stage1[0] == "4") {
+		console.log("Press " + Mmr_Stage4[5]);
+	}
+} else if (Mmr_Stage4[0] == "2") {
+	console.log("Press " + Mmr_Stage4[2]);
+}
+
+//Stage 5
+if (Mmr_Stage5[0] == "1") {
+	if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+		console.log("Press " + Mmr_Stage1[3]);
+	} else if (Mmr_Stage1[0] == "3") {
+		console.log("Press " + Mmr_Stage1[4]);
+	} else if (Mmr_Stage1[0] == "4") {
+		console.log("Press " + Mmr_Stage1[5]);
+	}
+} else if (Mmr_Stage5[0] == "2") {
+	if (Mmr_Stage2[0] == "2" || Mmr_Stage2[0] == "4") {
+		if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+			console.log("Press " + Mmr_Stage2[3]);
+		} else if (Mmr_Stage1[0] == "3") {
+			console.log("Press " + Mmr_Stage2[4]);
+		} else if (Mmr_Stage1[0] == "4") {
+			console.log("Press " + Mmr_Stage2[5]);
+		}
+	} else if (Mmr_Stage2[0] == "1") {
+		console.log("Press 4");
+	} else if (Mmr_Stage2[0] == "3") {
+		console.log("Press " + Mmr_Stage2[2]);
+	}
+} else if (Mmr_Stage5[0] == "3") {
+	if (Mmr_Stage4[0] == "3" || Mmr_Stage4[0] == "4") {
+		if (Mmr_Stage2[0] == "2" || Mmr_Stage2[0] == "4") {
+			if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+				console.log("Press " + Mmr_Stage4[3]);
+			} else if (Mmr_Stage1[0] == "3") {
+				console.log("Press " + Mmr_Stage4[4]);
+			} else if (Mmr_Stage1[0] == "4") {
+				console.log("Press " + Mmr_Stage4[5]);
+			}
+		} else if (Mmr_Stage2[0] == "1") {
+			console.log("Press " + (Mmr_Stage4[Mmr_Stage2.indexOf("4")]));
+		} else if (Mmr_Stage2[0] == "3") {
+			console.log("Press " + Mmr_Stage4[2]);
+		}
+	} else if (Mmr_Stage4[0] == "1") {
+		if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+			console.log("Press " + Mmr_Stage4[3]);
+		} else if (Mmr_Stage1[0] == "3") {
+			console.log("Press " + Mmr_Stage4[4]);
+		} else if (Mmr_Stage1[0] == "4") {
+			console.log("Press " + Mmr_Stage4[5]);
+		}
+	} else if (Mmr_Stage4[0] == "2") {
+		console.log("Press " + Mmr_Stage4[2]);
+	}
+} else if (Mmr_Stage5[0] == "4") {
+	if (Mmr_Stage3[0] == "1") {
+		if (Mmr_Stage2[0] == "2" || Mmr_Stage2[0] == "4") {
+			if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+				console.log("Press " + Mmr_Stage2[3]);
+			} else if (Mmr_Stage1[0] == "3") {
+				console.log("Press " + Mmr_Stage2[4]);
+			} else if (Mmr_Stage1[0] == "4") {
+				console.log("Press " + Mmr_Stage2[5]);
+			}
+		} else if (Mmr_Stage2[0] == "1") {
+			console.log("Press 4");
+		} else if (Mmr_Stage2[0] == "3") {
+			console.log("Press " + Mmr_Stage2[2]);
+		}
+	} else if (Mmr_Stage3[0] == "2") {
+		if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
+			console.log("Press " + Mmr_Stage1[3]);
+		} else if (Mmr_Stage1[0] == "3") {
+			console.log("Press " + Mmr_Stage1[4]);
+		} else if (Mmr_Stage1[0] == "4") {
+			console.log("Press " + Mmr_Stage1[5]);
+		}
+	} else if (Mmr_Stage3[0] == "3") {
+		console.log("Press " + Mmr_Stage3[4]);
+	} else if (Mmr_Stage3[0] == "4") {
+		console.log("Press 4");
+	}
+}

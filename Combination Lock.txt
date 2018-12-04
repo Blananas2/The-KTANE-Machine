@@ -1,0 +1,35 @@
+//Combination Lock [Cbl]
+var Cbl_TwoF = false; //true if Two Factors
+var Cbl_Batt = 0; //# of batteries
+var Cbl_Solv = 0; //# of solved modules
+//IF YOU HAVE TWO FACTORS:
+var Cbl_LSD = [0, 0]; //Least significant digits seperated via commas
+var Cbl_MSD = [0, 0]; //Most significant digits seperated via commas
+//IF YOU DON'T HAVE TWO FACTORS:
+var Cbl_LstD = 0; //Last digit of SN
+var Cbl_Mods = 0; //# of modules (including needys)
+
+var Cbl_Add = 0;
+var Cbl_1st = 0;
+var Cbl_2nd = 0;
+var Cbl_3rd = 0;
+
+if (Cbl_TwoF == true) {
+	Cbl_1st = (Cbl_Batt + Cbl_Sum(Cbl_LSD)) % 20;
+	Cbl_2nd = (Cbl_Solv + Cbl_Sum(Cbl_MSD)) % 20;
+	Cbl_3rd = (Cbl_1st + Cbl_2nd) % 20;
+} else {
+	Cbl_1st = ((Cbl_LstD + Cbl_Solv) + Cbl_Batt) % 20;
+	Cbl_2nd = (Cbl_Mods + Cbl_Solv) % 20;
+	Cbl_3rd = (Cbl_1st + Cbl_2nd) % 20;
+}
+
+console.log("Right to " + Cbl_1st + ", left to " + Cbl_2nd + ", right to " + Cbl_3rd);
+
+function Cbl_Sum (a) {
+	Cbl_Add = 0;
+	for (i=0; i<a.length; i++) {
+		Cbl_Add = Cbl_Add + a[i];
+	}
+	return Cbl_Add
+}

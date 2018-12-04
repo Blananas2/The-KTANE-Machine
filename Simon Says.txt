@@ -1,0 +1,78 @@
+//Simon Says [Say]
+var Say_Seq = ""; //B,R,G,Y
+var Say_Strikes = 0;
+var Say_Vowel = true;
+
+var Say_Pos = -1;
+var Say_Sol = "";
+
+for (i=0; i< Say_Seq.length; i++) {
+	Say_Pos = Say_Pos + 1;
+	if (Say_Vowel == true) {
+		if (Say_Strikes == 0) {
+			if (Say_Seq[Say_Pos] == "R") {
+				Say_Sol = (Say_Sol + "B");
+			} else if (Say_Seq[Say_Pos] == "B") {
+				Say_Sol = (Say_Sol + "R");
+			} else if (Say_Seq[Say_Pos] == "G") {
+				Say_Sol = (Say_Sol + "Y");
+			} else if (Say_Seq[Say_Pos] == "Y") {
+				Say_Sol = (Say_Sol + "G");
+			} 
+		} else if (Say_Strikes == 1) {
+			if (Say_Seq[Say_Pos] == "R") {
+				Say_Sol = (Say_Sol + "Y");
+			} else if (Say_Seq[Say_Pos] == "B") {
+				Say_Sol = (Say_Sol + "G");
+			} else if (Say_Seq[Say_Pos] == "G") {
+				Say_Sol = (Say_Sol + "B");
+			} else if (Say_Seq[Say_Pos] == "Y") {
+				Say_Sol = (Say_Sol + "R");
+			} 
+		} else if (Say_Strikes > 1) {
+			if (Say_Seq[Say_Pos] == "R") {
+				Say_Sol = (Say_Sol + "G");
+			} else if (Say_Seq[Say_Pos] == "B") {
+				Say_Sol = (Say_Sol + "R");
+			} else if (Say_Seq[Say_Pos] == "G") {
+				Say_Sol = (Say_Sol + "Y");
+			} else if (Say_Seq[Say_Pos] == "Y") {
+				Say_Sol = (Say_Sol + "B");
+			} 
+		}
+	} else if (Say_Vowel == false) {
+		if (Say_Strikes == 0) {
+			if (Say_Seq[Say_Pos] == "R") {
+				Say_Sol = (Say_Sol + "B");
+			} else if (Say_Seq[Say_Pos] == "B") {
+				Say_Sol = (Say_Sol + "Y");
+			} else if (Say_Seq[Say_Pos] == "G") {
+				Say_Sol = (Say_Sol + "G");
+			} else if (Say_Seq[Say_Pos] == "Y") {
+				Say_Sol = (Say_Sol + "R");
+			} 
+		} else if (Say_Strikes == 1) {
+			if (Say_Seq[Say_Pos] == "R") {
+				Say_Sol = (Say_Sol + "R");
+			} else if (Say_Seq[Say_Pos] == "B") {
+				Say_Sol = (Say_Sol + "B");
+			} else if (Say_Seq[Say_Pos] == "G") {
+				Say_Sol = (Say_Sol + "Y");
+			} else if (Say_Seq[Say_Pos] == "Y") {
+				Say_Sol = (Say_Sol + "G");
+			} 
+		} else if (Say_Strikes > 1) {
+			if (Say_Seq[Say_Pos] == "R") {
+				Say_Sol = (Say_Sol + "Y");
+			} else if (Say_Seq[Say_Pos] == "B") {
+				Say_Sol = (Say_Sol + "G");
+			} else if (Say_Seq[Say_Pos] == "G") {
+				Say_Sol = (Say_Sol + "B");
+			} else if (Say_Seq[Say_Pos] == "Y") {
+				Say_Sol = (Say_Sol + "R");
+			} 
+		}
+	}
+}
+
+console.log(Say_Sol);

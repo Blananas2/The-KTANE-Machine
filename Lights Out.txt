@@ -1,0 +1,70 @@
+//Lights Out [Lto]
+var Lto_top = "..."; //. = unlit
+var Lto_mid = "..."; //# = lit
+var Lto_bot = "...";
+
+var Lto_c = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+if (Lto_top[0] == "#") {
+	Lto_c[0] = Lto_c[0] + 1;
+	Lto_c[2] = Lto_c[2] + 1;
+	Lto_c[5] = Lto_c[5] + 1;
+	Lto_c[6] = Lto_c[6] + 1;
+	Lto_c[7] = Lto_c[7] + 1;
+}
+if (Lto_top[1] == "#") {
+	Lto_c[4] = Lto_c[4] + 1;
+	Lto_c[6] = Lto_c[6] + 1;
+	Lto_c[7] = Lto_c[7] + 1;
+	Lto_c[8] = Lto_c[8] + 1;
+}
+if (Lto_top[2] == "#") {
+	Lto_c[0] = Lto_c[0] + 1;
+	Lto_c[2] = Lto_c[2] + 1;
+	Lto_c[3] = Lto_c[3] + 1;
+	Lto_c[7] = Lto_c[7] + 1;
+	Lto_c[8] = Lto_c[8] + 1;
+}
+if (Lto_mid[0] == "#") {
+	Lto_c[2] = Lto_c[2] + 1;
+	Lto_c[4] = Lto_c[4] + 1;
+	Lto_c[5] = Lto_c[5] + 1;
+	Lto_c[8] = Lto_c[8] + 1;
+}
+if (Lto_mid[1] == "#") {
+	Lto_c[1] = Lto_c[1] + 1;
+	Lto_c[3] = Lto_c[3] + 1;
+	Lto_c[4] = Lto_c[4] + 1;
+	Lto_c[5] = Lto_c[5] + 1;
+	Lto_c[7] = Lto_c[7] + 1;
+}
+if (Lto_mid[2] == "#") {
+	Lto_c[0] = Lto_c[0] + 1;
+	Lto_c[3] = Lto_c[3] + 1;
+	Lto_c[4] = Lto_c[4] + 1;
+	Lto_c[6] = Lto_c[6] + 1;
+}
+if (Lto_bot[0] == "#") {
+	Lto_c[0] = Lto_c[0] + 1;
+	Lto_c[1] = Lto_c[1] + 1;
+	Lto_c[5] = Lto_c[5] + 1;
+	Lto_c[6] = Lto_c[6] + 1;
+	Lto_c[8] = Lto_c[8] + 1;
+}
+if (Lto_bot[1] == "#") {
+	Lto_c[0] = Lto_c[0] + 1;
+	Lto_c[1] = Lto_c[1] + 1;
+	Lto_c[2] = Lto_c[2] + 1;
+	Lto_c[4] = Lto_c[4] + 1;
+}
+if (Lto_bot[2] == "#") {
+	Lto_c[1] = Lto_c[1] + 1;
+	Lto_c[2] = Lto_c[2] + 1;
+	Lto_c[3] = Lto_c[3] + 1;
+	Lto_c[6] = Lto_c[6] + 1;
+	Lto_c[8] = Lto_c[8] + 1;
+}
+
+console.log(Lto_c[0] % 2 + "" + Lto_c[1] % 2 + "" + Lto_c[2] % 2);
+console.log(Lto_c[3] % 2 + "" + Lto_c[4] % 2 + "" + Lto_c[5] % 2);
+console.log(Lto_c[6] % 2 + "" + Lto_c[7] % 2 + "" + Lto_c[8] % 2);

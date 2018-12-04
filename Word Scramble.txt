@@ -1,0 +1,39 @@
+//Word Scramble [Wsc]
+var Wsc_Word = "";
+
+Wsc_Find("ARCHER");
+Wsc_Find("ATTACK");
+Wsc_Find("BANANA");
+Wsc_Find("BLASTS");
+Wsc_Find("BURSTS");
+Wsc_Find("BUTTON");
+Wsc_Find("CANNON");
+Wsc_Find("CASING");
+Wsc_Find("CHARGE");
+Wsc_Find("DAMAGE");
+Wsc_Find("DEFUSE");
+Wsc_Find("DEVICE");
+Wsc_Find("DISARM");
+Wsc_Find("FLAMES");
+Wsc_Find("KABOOM");
+Wsc_Find("KEVLAR");
+Wsc_Find("KEYPAD");
+Wsc_Find("LETTER");
+Wsc_Find("MODULE");
+Wsc_Find("MORTAR");
+Wsc_Find("NAPALM");
+Wsc_Find("OTTAWA");
+Wsc_Find("PERSON");
+Wsc_Find("ROBOTS");
+Wsc_Find("ROCKET");
+Wsc_Find("SAPPER");
+Wsc_Find("SEMTEX");
+Wsc_Find("WEAPON");
+Wsc_Find("WIDGET");
+Wsc_Find("WIRING");
+
+function Wsc_Find (n) {
+	if ((Wsc_Word.includes(n[0]) && (Wsc_Word.includes(n[1]) && Wsc_Word.includes(n[2]))) && ((Wsc_Word.includes(n[3]) && Wsc_Word.includes(n[4])) && Wsc_Word.includes(n[5]))) {
+		console.log(n);
+	}
+}

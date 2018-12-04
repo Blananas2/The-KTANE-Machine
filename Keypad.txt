@@ -1,0 +1,33 @@
+//Keypad [Kpd]
+//ѦϞ©ὦԆϾѮ★҂æҊΩϘƛѬϗϿӬҨ☆¿Җб¶ѢټΨ
+var Kpd_Symbols = "ϞѬϗϿ";
+
+var Kpd_Columns = ["ϘѦƛϞѬϗϿ", "ӬϘϿҨ☆ϗ¿", "©ὦҨҖԆƛ☆", "б¶ѢѬҖ¿ټ", "ΨټѢϾ¶Ѯ★", "бӬ҂æΨҊΩ"];
+var Kpd_Checking = -1;
+var Kpd_FoundA = false;
+var Kpd_FoundB = false;
+var Kpd_FoundC = false;
+var Kpd_FoundD = false;
+var Kpd_Checked;
+
+for (i=0; i<6; i++) {
+	Kpd_Checking = Kpd_Checking + 1;
+	Kpd_FoundA = Kpd_Columns[Kpd_Checking].includes(Kpd_Symbols[0]);
+	Kpd_FoundB = Kpd_Columns[Kpd_Checking].includes(Kpd_Symbols[1]);
+	Kpd_FoundC = Kpd_Columns[Kpd_Checking].includes(Kpd_Symbols[2]);
+	Kpd_FoundD = Kpd_Columns[Kpd_Checking].includes(Kpd_Symbols[3]);
+	
+	if ((Kpd_FoundA == true && Kpd_FoundB == true) && (Kpd_FoundC == true && Kpd_FoundD == true)) {
+		Kpd_Checked = Kpd_Checking;
+	}
+}
+console.log(Kpd_Columns[Kpd_Checked]);
+console.log("=======")
+
+Kpd_FoundA = Kpd_Columns[Kpd_Checked].indexOf(Kpd_Symbols[0]);
+Kpd_FoundB = Kpd_Columns[Kpd_Checked].indexOf(Kpd_Symbols[1]);
+Kpd_FoundC = Kpd_Columns[Kpd_Checked].indexOf(Kpd_Symbols[2]);
+Kpd_FoundD = Kpd_Columns[Kpd_Checked].indexOf(Kpd_Symbols[3]);
+
+console.log((((Kpd_FoundA + 1) + " ") + ((Kpd_FoundB + 1) + " ")) + (((Kpd_FoundC + 1) + " ") + (Kpd_FoundD + 1)));
+console.log(((Kpd_Symbols[0] + " ") + (Kpd_Symbols[1] + " ")) + ((Kpd_Symbols[2] + " ") + Kpd_Symbols[3]));

@@ -1,0 +1,87 @@
+//Wire Sequence [Wsq]
+var Wsq_Colors = "000000000000"; //R,B,K
+var Wsq_Letter = "000000000000"; //A,B,C
+
+var Wsq_Rcount = 0;
+var Wsq_Bcount = 0;
+var Wsq_Kcount = 0;
+
+Wsq_Table(0);
+Wsq_Table(1);
+Wsq_Table(2);
+Wsq_Table(3);
+Wsq_Table(4);
+Wsq_Table(5);
+Wsq_Table(6);
+Wsq_Table(7);
+Wsq_Table(8);
+Wsq_Table(9);
+Wsq_Table(10);
+Wsq_Table(11);
+
+function Wsq_Table (n) {
+	if (Wsq_Colors[n] == "R") {
+		Wsq_Rcount = Wsq_Rcount + 1;
+		if (Wsq_Letter[n] == "A") {
+			if (Wsq_Rcount == 3 || (Wsq_Rcount == 4 || (Wsq_Rcount == 6 || (Wsq_Rcount == 7 || Wsq_Rcount == 8)))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Wsq_Letter[n] == "B") {
+			if (Wsq_Rcount == 2 || (Wsq_Rcount == 5 || (Wsq_Rcount == 7 || (Wsq_Rcount == 8 || Wsq_Rcount == 9)))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Wsq_Letter[n] == "C") {
+			if (Wsq_Rcount == 1 || (Wsq_Rcount == 4 || (Wsq_Rcount == 6 || Wsq_Rcount == 7))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		}
+	} else if (Wsq_Colors[n] == "B") {
+		Wsq_Bcount = Wsq_Bcount + 1;
+		if (Wsq_Letter[n] == "A") {
+			if (Wsq_Bcount == 2 || (Wsq_Bcount == 4 || (Wsq_Bcount == 8 || Wsq_Bcount == 9))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Wsq_Letter[n] == "B") {
+			if (Wsq_Bcount == 1 || (Wsq_Bcount == 3 || (Wsq_Bcount == 5 || Wsq_Bcount == 6))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Wsq_Letter[n] == "C") {
+			if (Wsq_Bcount == 2 || (Wsq_Bcount == 6 || (Wsq_Bcount == 7 || Wsq_Bcount == 8))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		}
+	} else if (Wsq_Colors[n] == "K") {
+		Wsq_Kcount = Wsq_Kcount + 1;
+		if (Wsq_Letter[n] == "A") {
+			if (Wsq_Kcount == 1 || (Wsq_Kcount == 2 || (Wsq_Kcount == 4 || Wsq_Kcount == 7))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Wsq_Letter[n] == "B") {
+			if (Wsq_Kcount == 1 || (Wsq_Kcount == 3 || (Wsq_Kcount == 5 || (Wsq_Kcount == 6 || Wsq_Kcount == 7)))) {
+				console.log("Cut");
+			} else {
+				console.log("Skip");
+			}
+		} else if (Wsq_Letter[n] == "C") {
+			if (Wsq_Kcount == 3 || (Wsq_Kcount == 5 || (Wsq_Kcount == 7))) {
+				console.log("Skip");
+			} else {
+				console.log("Cut");
+			}
+		}
+	}
+}

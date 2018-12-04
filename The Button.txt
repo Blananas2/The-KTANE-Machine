@@ -1,0 +1,20 @@
+//The Button [Btn]
+var Btn_label = "A"; //first letter or word A,D,H,P
+var Btn_color = "W"; //B,R,W,Y
+var Btn_batt = 0;
+var Btn_litFRK = false;
+var Btn_CAR = false;
+
+if (Btn_label[0] == "D" && Btn_batt < 2) {
+	console.log("Hold the button. Strips: Blue=4, Yellow=5, else 1.");
+} else if (Btn_label[0] == "D") {
+	console.log("Tap and immediately release the button.");
+} else if ((Btn_color == "W" && Btn_CAR == true) || (Btn_label[0] == "A" && Btn_color == "B")) {
+	console.log("Hold the button. Strips: Blue=4, Yellow=5, else 1.");
+} else if (Btn_label[0] == "H" && Btn_color == "R") {
+	console.log("Tap and immediately release the button.");
+} else if (Btn_batt >= 3 && Btn_litFRK == true) {
+	console.log("Tap and immediately release the button.");
+} else {
+	console.log("Hold the button. Strips: Blue=4, Yellow=5, else 1.");
+}

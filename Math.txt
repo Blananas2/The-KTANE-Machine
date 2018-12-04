@@ -1,0 +1,4 @@
+//Math [Mth]
+var Mth_eq = (); //Put equation in parenthesis.
+
+console.log(Mth_eq);

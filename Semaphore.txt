@@ -1,0 +1,102 @@
+//Semaphore [Sem]
+//Use cardinal directions (^N >E <W vS) seperated by dots
+var Sem_Flags = ["", "", "", "", "", "", "", "", "", "", "", ""];
+var Sem_SN = "";
+
+var Sem_Char = ""; //For Letter or Number
+var Sem_Check = "";
+var Sem_Curr = 0;
+var Sem_Ans;
+
+for (i = 0; i < (Sem_Flags.length); i++) {
+		Sem_Curr = i + 1;
+	if (Sem_Flags[i] == "N.NE" && Sem_Char != "n") {
+		Sem_Char = "n";
+		continue;
+	} else if (Sem_Flags[i] == "N.E" && Sem_Char != "l") {
+		Sem_Char = "l";
+		continue;
+	} else if (Sem_Char == "n") {
+		if (Sem_Flags[i] == "SW.S") {
+			Sem_Check = "1";
+		} else if (Sem_Flags[i] == "W.S") {
+			Sem_Check = "2";
+		} else if (Sem_Flags[i] == "NW.S") {
+			Sem_Check = "3";
+		} else if (Sem_Flags[i] == "N.S") {
+			Sem_Check = "4";
+		} else if (Sem_Flags[i] == "S.NE") {
+			Sem_Check = "5";
+		} else if (Sem_Flags[i] == "S.E") {
+			Sem_Check = "6";
+		} else if (Sem_Flags[i] == "S.SE") {
+			Sem_Check = "7";
+		} else if (Sem_Flags[i] == "W.SW") {
+			Sem_Check = "8";
+		} else if (Sem_Flags[i] == "SW.NW") {
+			Sem_Check = "9";
+		} else if (Sem_Flags[i] == "SW.N") {
+			Sem_Check = "0";
+		}
+	} else if (Sem_Char == "l") {
+		if (Sem_Flags[i] == "SW.S") {
+			Sem_Check = "A";
+		} else if (Sem_Flags[i] == "W.S") {
+			Sem_Check = "B";
+		} else if (Sem_Flags[i] == "NW.S") {
+			Sem_Check = "C";
+		} else if (Sem_Flags[i] == "N.S") {
+			Sem_Check = "D";
+		} else if (Sem_Flags[i] == "S.NE") {
+			Sem_Check = "E";
+		} else if (Sem_Flags[i] == "S.E") {
+			Sem_Check = "F";
+		} else if (Sem_Flags[i] == "S.SE") {
+			Sem_Check = "G";
+		} else if (Sem_Flags[i] == "W.SW") {
+			Sem_Check = "H";
+		} else if (Sem_Flags[i] == "SW.NW") {
+			Sem_Check = "I";
+		} else if (Sem_Flags[i] == "N.E") {
+			Sem_Check = "J";
+		} else if (Sem_Flags[i] == "SW.N") {
+			Sem_Check = "K";
+		} else if (Sem_Flags[i] == "SW.NE") {
+			Sem_Check = "L";
+		} else if (Sem_Flags[i] == "SW.E") {
+			Sem_Check = "M";
+		} else if (Sem_Flags[i] == "SW.SE") {
+			Sem_Check = "N";
+		} else if (Sem_Flags[i] == "W.NW") {
+			Sem_Check = "O";
+		} else if (Sem_Flags[i] == "W.N") {
+			Sem_Check = "P";
+		} else if (Sem_Flags[i] == "W.NE") {
+			Sem_Check = "Q";
+		} else if (Sem_Flags[i] == "W.E") {
+			Sem_Check = "R";
+		} else if (Sem_Flags[i] == "W.SE") {
+			Sem_Check = "S";
+		} else if (Sem_Flags[i] == "NW.N") {
+			Sem_Check = "T";
+		} else if (Sem_Flags[i] == "NW.NE") {
+			Sem_Check = "U";
+		} else if (Sem_Flags[i] == "N.SE") {
+			Sem_Check = "V";
+		} else if (Sem_Flags[i] == "NE.E") {
+			Sem_Check = "W";
+		} else if (Sem_Flags[i] == "NE.SE") {
+			Sem_Check = "X";
+		} else if (Sem_Flags[i] == "NW.E") {
+			Sem_Check = "Y";
+		} else if (Sem_Flags[i] == "SE.E") {
+			Sem_Check = "Z";
+		}
+	}
+	
+	if (Sem_SN.includes(Sem_Check) == false) {
+		Sem_Ans = Sem_Curr;
+	}
+}
+
+console.log("The answer is signal entry " + Sem_Ans);
