@@ -5,9 +5,11 @@ The KTANE Machine is Blananas2’s attempt at coding something that can solve Ke
 
 Solvers for modded modules are also included, if you are unfamiliar with modded modules, you can find their manuals on: https://ktane.timwi.de/
 
-Note: The code for these solvers may be messy and/or inefficient, I’m not a good programmer and I never claim to be, this is just for fun.
+Disclaimers: 
+The code for these solvers may be messy and/or inefficient, I’m not a good programmer and I never claim to be, this is just for fun.
+Also, This is my first Github repo, as such, some things may not make much sense.
 
-In addition, solvers for modules will be created in the order they were released.
+New solvers for modules will be created in the order they were released.
 
 These solvers use `console.log();` in Javascript to give answers. So if your IDE can use it, than you can insert code into there. Alternatively, you can use https://tio.run/# and put the code into there.
 
@@ -20,4 +22,4 @@ These solvers use `console.log();` in Javascript to give answers. So if your IDE
 **For those who want to edit the code:**
 
 If you want to improve the code, go ahead but don’t submit it to me unless there’s a bug. In that case, tell me where the bug is.
-I’ve given all modules a prefix so one module’s code doesn’t affect another.
+I’ve given all modules a 3-letter prefix so one module’s code doesn’t affect another.
