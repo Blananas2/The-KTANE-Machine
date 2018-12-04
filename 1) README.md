@@ -1,11 +1,13 @@
-# The-KTANE-Machine
-A solver for Keep Talking and Nobody Explodes (mods included).
+# The KTANE Machine
+A JavaScript solver for Keep Talking and Nobody Explodes (mods included).
 
 The KTANE Machine is Blananas2’s attempt at coding something that can solve Keep Talking and Nobody Explodes bombs. If you are unfamiliar with Keep Talking and Nobody Explodes, please play the game first.
 
 Solvers for modded modules are also included, if you are unfamiliar with modded modules, you can find their manuals on: https://ktane.timwi.de/
 
 Note: The code for these solvers may be messy and/or inefficient, I’m not a good programmer and I never claim to be, this is just for fun.
+
+In addition, solvers for modules will be created in the order they were released.
 
 These solvers use `console.log();` in Javascript to give answers. So if your IDE can use it, than you can insert code into there. Alternatively, you can use https://tio.run/# and put the code into there.
 
