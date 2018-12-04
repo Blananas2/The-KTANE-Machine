@@ -22,4 +22,4 @@ These solvers use `console.log();` in Javascript to give answers. So if your IDE
 **For those who want to edit the code:**
 
 If you want to improve the code, go ahead but don’t submit it to me unless there’s a bug. In that case, tell me where the bug is.
-I’ve given all modules a 3-letter prefix so one module’s code doesn’t affect another.
+I’ve given all modules a 3-letter prefix so one module’s code doesn’t affect another, thus, making a solver for multiple modules is possible if desired.
