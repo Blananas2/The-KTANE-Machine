@@ -1,5 +1,5 @@
 //Wires [Wrs]
-var Wrs_List = "RYB"; //R,Y,B,W,K
+var Wrs_List = ""; //R,Y,B,W,K (input like "RRR" for 3 red wires)
 var Wrs_SN = 0; //last digit of SN // 0:even, 1:odd
 
 var Wrs_Rcount = 0;
@@ -16,46 +16,46 @@ Wrs_count (Wrs_List.length + 1);
 if (Wrs_List.length == 3) {
     console.log("3 Wires");
     if (Wrs_List == "BBR") {
-        console.log("Cut the 2nd wire. Rule: BBR");
+        console.log("Cut the 2nd wire.");
     } else if (Wrs_List[0] != "R" && (Wrs_List[1] != "R" && Wrs_List[2] != "R")) {
-        console.log("Cut the 2nd wire. Rule: No red");
+        console.log("Cut the 2nd wire.");
     } else {
-        console.log("Cut the 3rd wire. Rule: Otherwise");
+        console.log("Cut the 3rd wire.");
     }
 } else if (Wrs_List.length == 4) {
     console.log("4 Wires");
 	if (Wrs_Rcount >= 2 && Wrs_SN == 1) {
-		console.log("Cut the last red wire. Rule: SN odd, 2+ red");
+		console.log("Cut the last red wire.");
 	} else if (Wrs_List[3] == "Y" && Wrs_Rcount == 0) {
-		console.log("Cut the 1st wire. Rule: Last yellow, no red");
+		console.log("Cut the 1st wire.");
 	} else if (Wrs_Bcount == 1) {
-		console.log("Cut the 1st wire. Rule: 1 Blue");
+		console.log("Cut the 1st wire.");
 	} else if (Wrs_Ycount >= 2) {
-		console.log("Cut the 4th wire. Rule: 2+ Yellow");
+		console.log("Cut the 4th wire.");
 	} else {
-		console.log("Cut the 2nd wire. Rule: Otherwise");
+		console.log("Cut the 2nd wire.");
 	}
 } else if (Wrs_List.length == 5) {
     console.log("5 Wires");
 	if (Wrs_List[4] == "K" && Wrs_SN == 1) {
-		console.log("Cut the 4th wire. Rule: SN odd, last black");
+		console.log("Cut the 4th wire.");
 	} else if (Wrs_Rcount == 1 && Wrs_Ycount >= 2) {
-		console.log("Cut the 1st wire. Rule: 1 Red, 2+ Yellow");
+		console.log("Cut the 1st wire.");
 	} else if (Wrs_Kcount == 0) {
-		console.log("Cut the 2nd wire. Rule: No black");
+		console.log("Cut the 2nd wire.");
 	} else {
-		console.log("Cut the 1st wire. Rule: Otherwise");
+		console.log("Cut the 1st wire.");
 	}
 } else if (Wrs_List.length == 6) {
     console.log("6 Wires");
 	if (Wrs_Ycount == 0 && Wrs_SN == 1) {
-		console.log("Cut the 3rd wire. Rule: SN odd, no yellow");
+		console.log("Cut the 3rd wire.");
 	} else if (Wrs_Ycount == 1 && Wrs_Wcount >= 2) {
-		console.log("Cut the 4th wire. Rule: 1 Yellow, 2+ White");
+		console.log("Cut the 4th wire.");
 	} else if (Wrs_Rcount == 0) {
-		console.log("Cut the 6th wire. Rule: No red");
+		console.log("Cut the 6th wire.");
 	} else {
-		console.log("Cut the 4th wire. Rule: Otherwise");
+		console.log("Cut the 4th wire.");
 	}
 }
 
