@@ -1,5 +1,5 @@
 //Knob [Knb]
-var Knb_Lights = "43"; //Left # = Left LEDs lit, same for right.
+var Knb_Lights = "00"; //Left # = Left LEDs lit, same for right.
 
 if (Knb_Lights == "03" || Knb_Lights == "14") {
 	console.log("LEFT");
