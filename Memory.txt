@@ -1,10 +1,10 @@
 //Memory [Mmr]
-               //012345
+//                012345
 var Mmr_Stage1 = "0 0000"; //X ABCD
-var Mmr_Stage2 = "0 0000"; //
+var Mmr_Stage2 = "0 0000";
 var Mmr_Stage3 = "0 0000"; //X is display
 var Mmr_Stage4 = "0 0000"; //ABCD are buttons
-var Mmr_Stage5 = "0 0000"; // 
+var Mmr_Stage5 = "0 0000";
 
 //Stage 1
 if (Mmr_Stage1[0] == "1" || Mmr_Stage1[0] == "2") {
