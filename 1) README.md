@@ -15,7 +15,7 @@ These solvers use `console.log();` in Javascript to give answers. So if your IDE
 
 **How to use the bot:**
 - Find the text file named after the module you would like to solve.
-- Copy your code into your IDE of choice (or tio.run).
+- Copy the entire code in the text file into your IDE of choice (or tio.run).
 - Only change the variables at the very top of the code _before_ the 1st single line gap.
 - Run the code for the answer to be placed into the console.
 
