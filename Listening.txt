@@ -1,0 +1,52 @@
+//Listening [Lsn]
+var Lsn_Search = ""; //Search for words, there are 41 sounds
+
+var Lsn_phrases = [ 
+"$#$#* | Arcade | [Alot of tiny details sprinkled in] (Tags: noisy, long, retro) 10s",
+"$*$** | Ballpoint Pen Writing | [rr rR Rib] (Tags: short) <1s",
+"*&*&& | Beach | [Just waves] (Tags: water, short) 2s",
+"###&$ | Book Page Turning | [Move over page 1] (Tags: paper, short) <1s",
+"&#**& | Car Engine | [Short sound, with many sounds within] (Tags: noisy, short) 1s",
+"**$*# | Casino | [One tiny detail] (Tags: noisy, medium, retro) 4s",
+"&&$&* | Censorship Bleep | [I'll go 'HOLY SH*T' if you f*ck this up] (Tags: short, retro) <1s",
+"&#&&# | Chainsaw | [Yeah, really] (Tags: mechanical, short) 2s",
+"$$*$* | Compressed Air | [Poof] (Tags: short) <1s",
+"&$#$& | Cow | [Should be obvious] (Tags: animal, medium) 3s",
+"*#&*& | Dial-up Internet | [Screeching of a robot cat] (Tags: retro, short) 1s",
+"#$#&$ | Door Closing | [Sudden thud] (Tags: short) <1s",
+"$#$*& | Extractor Fan | [*push button* *fan buzz*] (Tags: short, button, click, mechanical, air, wind) 2s",
+"$&$$* | Firework Exploding | [Poh Fzz What you'd excpect] (Tags: boom, explode, short) 2s",
+"*$*$* | Glass Shattering | [Not a big glass, a small glass] (Tags: short) 1s",
+"#&$&& | Helicopter | [A sound you can make with your tongue] (Tags: mechanical, medium) 4s",
+"&*$*$ | Marimba | [Tiny thoo] (Tags: music, short) <1s",
+"&$**& | Midevil Weapons | [Clanging] (Tags: metal, medium) 4s",
+"&#$$# | Oboe | [Quick notes at high frequency] (Tags: music, medium) 3s",
+"&$$&* | Phone Ringing | [Another obvious one] (Tags: short) 1s",
+"**### | Police Radio Scanner | [Voices that cannot be deciphered] (Tags: voice, medium) 4s",
+"*#$&& | Rattling Iron Chain | [Only one that rattles] (Tags: metal, short) 2s",
+"$&**# | Reloading Glock 19 | [A gun, obviously] (Tags: click, short) <1s",
+"$&&** | Saxophone | [Slower note at medium frequency] (Tags: music, medium) 5s",
+"$&#$$ | Servo Motor | [Robot-y (or robot-ish?) sound] (Tags: retro, short) <1s",
+"#&&*# | Sewing Machine | [Quick up and down movement] (Tags: noisy, short, mechanical, clothing) 1s",
+"##*$* | Soccer Match | [chanting in unison] (Tags: voice, noisy, medium, sports) 4s",
+"$*&## | Squeaky Toy | [Squeak, a tiny squeak] (Tags: animal, short) <1s",
+"#$$&* | Supermarket | [Some beeps] (Tags: quiet, short) 2s",
+"*$$&$ | Table Tennis | [Tok.. or bok? Hard to describe] (Tags: really short, sports) <1s",
+"$#*$& | Tawny Owl | [Doesn't sound like an owl] (Tags: animal, short, bird) 4s",
+"&&&** | Taxi Dispatch | [Says 'I just took a wrong exit'] (Tags: voice, medium) 3s",
+"$&&*& | Tearing Fabric | [Let 'er rip] (Tags: clothing, short) <1s",
+"**$$$ | Throat Singing | [AEAEAEAEAEAE] (Tags: voice, short) 2s",
+"**#** | Thrush Nightingale | [Tweets and whistles and chirps] (Tags: animal, bird, long) 9s",
+"#&&&& | Tibetan Nuns | [Speaking another language] (Tags: voice, music, medium) 5s",
+"#$$** | Train Station | ['7 minutes, platform'] (Tags: voice, short) 2s",
+"#&$## | Tuba | [One note, sounds like a car] (Tags: music, noisy, short) 2s",
+"#&$*& | Vacuum Cleaner | [As annoying as you remember it] (Tags: loud, short) 1s",
+"&**$$ | Waterfall | [Loud and obvious] (Tags: loud, water, medium) 2s",
+"&$&## | Zipper | [Small and quiet] (Tags: clothing, short) <1s"
+];
+
+for (i=0; i<41; i++) {
+	if (Lsn_phrases[i].toLowerCase().includes(Lsn_Search.toLowerCase())) {
+		console.log(Lsn_phrases[i])
+	}
+}
