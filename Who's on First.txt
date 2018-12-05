@@ -86,3 +86,5 @@ console.log(Wof_Buttons[2] + (" " + Wof_FoundList.indexOf(Wof_Buttons[2]+",")));
 console.log(Wof_Buttons[3] + (" " + Wof_FoundList.indexOf(Wof_Buttons[3]+",")));
 console.log(Wof_Buttons[4] + (" " + Wof_FoundList.indexOf(Wof_Buttons[4]+",")));
 console.log(Wof_Buttons[5] + (" " + Wof_FoundList.indexOf(Wof_Buttons[5]+",")));
+console.log("");
+console.log("Use list or push label next to smallest positive number.");
