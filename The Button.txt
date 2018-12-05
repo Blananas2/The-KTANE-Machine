@@ -1,6 +1,6 @@
 //The Button [Btn]
-var Btn_label = "A"; //first letter or word A,D,H,P
-var Btn_color = "W"; //B,R,W,Y
+var Btn_label = ""; //first letter or word A,D,H,P
+var Btn_color = ""; //B,R,W,Y
 var Btn_batt = 0;
 var Btn_litFRK = false;
 var Btn_CAR = false;
