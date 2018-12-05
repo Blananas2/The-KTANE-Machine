@@ -1,5 +1,5 @@
 //Venting Gas [Vtg]
-var Vtg_Prompt = "V"; //First letter or whole phrase
+var Vtg_Prompt = ""; //First letter or whole phrase
 
 if (Vtg_Prompt[0] == "V"){
 	console.log("Press Y");
