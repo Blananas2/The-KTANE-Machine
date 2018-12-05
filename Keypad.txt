@@ -1,6 +1,6 @@
 //Keypad [Kpd]
 //ѦϞ©ὦԆϾѮ★҂æҊΩϘƛѬϗϿӬҨ☆¿Җб¶ѢټΨ
-var Kpd_Symbols = "ϞѬϗϿ";
+var Kpd_Symbols = "";
 
 var Kpd_Columns = ["ϘѦƛϞѬϗϿ", "ӬϘϿҨ☆ϗ¿", "©ὦҨҖԆƛ☆", "б¶ѢѬҖ¿ټ", "ΨټѢϾ¶Ѯ★", "бӬ҂æΨҊΩ"];
 var Kpd_Checking = -1;
