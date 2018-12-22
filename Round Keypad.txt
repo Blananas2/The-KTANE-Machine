@@ -1,0 +1,35 @@
+//Round Keypad [Rkp]
+//ѦϞ©ὦԆϾѮ★҂æҊΩϘƛѬϗϿӬҨ☆¿Җб¶ѢټΨ
+var Rkp_Symbols = "";
+
+
+var Rkp_Columns = ["ϘѦƛϞѬϗϿ", "ӬϘϿҨ☆ϗ¿", "©ὦҨҖԆƛ☆", "б¶ѢѬҖ¿ټ", "ΨټѢϾ¶Ѯ★", "бӬ҂æΨҊΩ"];
+var Rkp_Amount = 0;
+var Rkp_Largest = 0;
+var Rkp_Checking = 0;
+var Rkp_Solution = 0;
+var Rkp_Answer = "";
+
+for (i=0; i<6; i++) {
+	Rkp_Checking = 5-i;
+	for (j=0; j<8; j++) {
+		if (Rkp_Symbols.includes(Rkp_Columns[Rkp_Checking][j])) {
+			Rkp_Amount = Rkp_Amount + 1;
+		}
+	}
+	if (Rkp_Amount > Rkp_Largest) {
+		Rkp_Solution = Rkp_Checking;
+		Rkp_Largest = Rkp_Amount;
+	}
+	Rkp_Amount = 0;
+}
+
+for (k=0; k<8; k++) {
+	if (Rkp_Columns[Rkp_Solution].includes(Rkp_Symbols[k])) {
+		continue;
+	} else {
+		Rkp_Answer = Rkp_Answer + Rkp_Symbols[k];
+	}
+}
+
+console.log(Rkp_Answer);
