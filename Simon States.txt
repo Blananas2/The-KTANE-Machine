@@ -1,0 +1,162 @@
+//Simon States [Sts]
+var Sts_Colors = ["", "", "", ""]; //R,Y,G,B; Stages 1-4
+var Sts_TL = ""; //Top left color
+
+var Sts_Prior = ["RBGY", "BYRG", "GRYB", "YGBR"]; //R, Y, G, B high to low
+var Sts_Sol = "";
+
+var Sts_a = -1; //Used for High function
+var Sts_b = -1; //Used for Stage 2: Lowest priority, didn't flash
+var Sts_c = -1; //Used for Stage 2: Didn't flash
+var Sts_d = -1; //Used for Stage 3: Lowest priority of other 2
+var Sts_e = -1; //Used for Stage 3: Highest priority flashed AND hasn't been pressed
+var Sts_f = -1; //Used for Stage 4: Which has already been pressed
+var Sts_g = ""; // ^^^
+var Sts_h = -1; //Used for Stage 4: Flashing which hasn't been pressed
+var Sts_i = ""; // ^^^
+
+if (Sts_TL == "R") {
+	Sts_TL = Sts_Prior[0];
+} else if (Sts_TL == "Y") {
+	Sts_TL = Sts_Prior[1];
+} else if (Sts_TL == "G") {
+	Sts_TL = Sts_Prior[2];
+} else if (Sts_TL == "B") {
+	Sts_TL = Sts_Prior[3];
+}
+
+//Stage 1
+if (Sts_Colors[0] != "") {
+	if (Sts_Colors[0].length == 1) {
+		Sts_Sol = Sts_Sol + Sts_Colors[0];
+	} else if (Sts_Colors[0].length == 2) {
+		if (Sts_Colors[0].includes("B")){
+			Sts_Sol = Sts_Sol + Sts_TL[Sts_High(0)];
+		} else {
+			Sts_Sol = Sts_Sol + "B";
+		}
+	} else if (Sts_Colors[0].length == 3) {
+		if (Sts_Colors[0].includes("R")){
+			Sts_Sol = Sts_Sol + Sts_TL[Sts_Low(0)];
+		} else {
+			Sts_Sol = Sts_Sol + "R";
+		}
+	} else {
+		Sts_Sol = Sts_Sol + Sts_TL[1];
+	}
+}
+
+//Stage 2
+if (Sts_Colors[1] != "") {
+	if (Sts_Colors[1].length == 1) {
+		if (Sts_Colors[1].includes("B")){
+			Sts_Sol = Sts_Sol + "Y";
+		} else {
+			Sts_Sol = Sts_Sol + "B";
+		}
+	} else if (Sts_Colors[1].length == 2) {
+		if (Sts_Colors[1].includes("R") && Sts_Colors[1].includes("B")) {
+			if (Sts_TL.indexOf("G") < Sts_TL.indexOf("Y")) {
+				Sts_Sol = Sts_Sol + "G";
+			} else {
+				Sts_Sol = Sts_Sol + "Y";
+			}
+		} else {
+			for (i=3; i>-1; i--) {
+				if (Sts_Colors[1].includes(Sts_TL[i]) == false) {
+					Sts_b = i;
+					break;
+				}
+			}
+			Sts_Sol = Sts_Sol + Sts_TL[Sts_b];
+		}
+	} else if (Sts_Colors[1].length == 3) {
+		for (i=0; i<4; i++) {
+			if (Sts_Colors[1].includes(Sts_TL[i]) == false) {
+				Sts_c = i;
+				break;
+			}
+		}
+		Sts_Sol = Sts_Sol + Sts_TL[Sts_c];
+	} else {
+		Sts_Sol = Sts_Sol + Sts_Sol;
+	}
+}
+
+//Stage 3
+if (Sts_Colors[2] != "") {
+	if (Sts_Colors[2].length == 1) {
+		Sts_Sol = Sts_Sol + Sts_Colors[2];
+	} else if (Sts_Colors[2].length == 2) {
+		if (Sts_Sol.includes(Sts_Colors[2][0]) && Sts_Sol.includes(Sts_Colors[2][1])) {
+			for (i=3; i>-1; i--) {
+				if (Sts_Colors[2].includes(Sts_TL[i]) == false) {
+					Sts_d = i;
+					break;
+				}
+			}
+			Sts_Sol = Sts_Sol + Sts_TL[Sts_d];
+		} else {
+			Sts_Sol = Sts_Sol + Sts_Sol[0];
+		}
+	} else if (Sts_Colors[2].length == 3) {
+		for (i=3; i>=0; i--){
+			if (Sts_Colors[2].includes(Sts_TL[i]) && Sts_Sol.includes(Sts_TL[i]) == false){
+				Sts_e = i;
+				break;
+			}
+		}
+		Sts_Sol = Sts_Sol + Sts_TL[Sts_e];
+	} else {
+		Sts_Sol = Sts_Sol + Sts_TL[2];
+	}
+}
+
+//Stage 4
+if (Sts_Colors[3] != "") {
+	for (i=0; i<4; i++) {
+		if (Sts_Sol.includes(Sts_TL[i])) {
+			Sts_f = Sts_f + 1;
+		} else {
+			Sts_g = Sts_TL[i]
+		}
+	}
+
+	for (i=0; i<4; i++) {
+		if (Sts_Colors[3].includes(Sts_TL[i]) && Sts_Sol.includes(Sts_TL[i]) == false) {
+			Sts_h = Sts_h + 1;
+			Sts_i = i;
+		}
+	}
+
+	if (Sts_f == 3) {
+		Sts_Sol = Sts_Sol + Sts_g;
+	} else if (Sts_Colors[3].length == 1) {
+		Sts_Sol = Sts_Sol + Sts_Colors[3];
+	} else if (Sts_Colors[3].length == 2) {
+		Sts_Sol = Sts_Sol + "G";
+	} else if (Sts_h == 1) {
+		Sts_Sol = Sts_Sol[Sts_i];
+	} else {
+		Sts_Sol = Sts_Sol + Sts_TL[3];
+	}
+}
+
+function Sts_High (s) {
+	for (i=3; i>=0; i--){
+		if (Sts_Colors[s].includes(Sts_TL[i])){
+			Sts_a = i;
+		}
+	}
+	return Sts_a;
+}
+
+function Sts_Low (s) {
+	for (i=0; i<4; i++) {
+		if (Sts_Colors[s].includes(Sts_TL[i])) {
+			return i;
+		}
+	}
+}
+
+console.log("Press " + Sts_Sol);
