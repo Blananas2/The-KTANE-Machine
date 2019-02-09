@@ -1,5 +1,5 @@
 //Complicated Wires [Cpw]
-//         Wire 123456
+//          Wire 123456
 var Cpw_Color = "000000"; //W,R,B,P P=R+B
 var Cpw_Other = "000000"; //N=None, L=LED, S=Star, B=Both
 var Cpw_Batt = 0;
