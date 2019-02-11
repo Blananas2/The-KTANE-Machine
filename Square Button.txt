@@ -1,0 +1,59 @@
+//Square Button [Sqb]
+var Sqb_BtnColor = ""; //Blue, Yellow, Gray, White
+var Sqb_BtnLabel = "";
+var Sqb_HighestSN = 0; //Largest SN digit
+var Sqb_SNvowel = false;
+var Sqb_AAbatt = 0;
+var Sqb_Dbatt = 0;
+var Sqb_LitInd = 0; //Lit indicators
+var Sqb_UnlitInd = 0;
+var Sqb_MinutesLeft = 0;
+
+var Sqb_MinThingA;
+var Sqb_MinThingB;
+var Sqb_SecThingA = [0, 3, 6, 2, 5, 1, 4];
+
+if (Sqb_BtnColor == "B" && (Sqb_AAbatt > Sqb_Dbatt)) {
+	Sqb_RHB(Sqb_MinutesLeft);
+} else if ((Sqb_BtnColor == "B" || Sqb_BtnColor == "Y") && Sqb_BtnLabel.length >= Sqb_HighestSN) {
+	console.log("Click the button.");
+} else if (Sqb_IsColor(Sqb_BtnLabel) && (Sqb_BtnColor == "B" || Sqb_BtnColor == "Y")) {
+	Sqb_RHB(Sqb_MinutesLeft);
+} else if (Sqb_BtnLabel.length == 0) {
+	console.log("When the two seconds digits match, click the button.");
+} else if (Sqb_BtnColor != "G" && (Sqb_BtnLabel.length > Sqb_LitInd)) {
+	console.log("Click the button.");
+} else if (Sqb_SNvowel == true && (Sqb_UnlitInd >= 2)) {
+	console.log("Click the button.");
+} else {
+	Sqb_RHB(Sqb_MinutesLeft);
+}
+
+function Sqb_RHB (m) {
+	console.log("Hold the button.");
+	console.log("");
+	console.log("SOLID: [x:ab]");
+	console.log("Cyan- a+b=7");
+	console.log("Orange- a+b=3 or 13");
+	console.log("Else- a+b=5");
+	console.log("");
+	console.log("FLASHING: [x:ab]");
+	console.log("Orange- seconds prime or 0")
+	console.log("Green- 1s after a+b=4n");
+	console.log("Cyan=");
+	Sqb_MinThingA = m % 7;
+	Sqb_MinThingB = Sqb_SecThingA[Sqb_MinThingA];
+	console.log(Sqb_MinutesLeft + ":" + Sqb_MinThingB);
+	while (Sqb_MinThingB < 60) {
+		Sqb_MinThingB = Sqb_MinThingB + 7;
+		console.log(Sqb_MinutesLeft + ":" + Sqb_MinThingB);
+	}
+}
+
+function Sqb_IsColor (l) {
+	if (l.length == 6 || l.length == 4) {
+		return true;
+	} else {
+		return false;
+	}
+}
