@@ -11,7 +11,7 @@ Also, this is my first Github repo, as such, some things may not make much sense
 
 New solvers for modules will be created in the order they were released.
 
-These solvers use `console.log();` in Javascript to give answers. So if your IDE can use it, than you can insert code into there. Alternatively, you can use https://tio.run/# and put the code into there.
+These solvers use `console.log();` in Javascript to give answers. So if your IDE can use it, then you can insert code into there. Alternatively, you can use https://tio.run/# and put the code into there.
 
 **How to use the bot:**
 - Find the text file named after the module you would like to solve.
